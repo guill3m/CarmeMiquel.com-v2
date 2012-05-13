@@ -1,0 +1,170 @@
+@charset "utf-8";
+/*
+Theme Name: CarmeMiquel
+Theme URI: http:/carmemiquel.com/
+Author: Guillem Andreu
+Author URI: http://guillemandreu.com/
+Description: Theme per a la web de Carme Miquel.
+Version: 2.0
+License: Private
+Tags:
+*/
+/*
+---------- RESET ---------- 
+*/
+html,
+body,
+div,
+span,
+a,
+img,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+p,
+dl,
+dialog,
+dt,
+dd,
+ol,
+ul,
+li,
+abbr,
+acronym,
+address,
+b,
+big,
+blockquote,
+cite,
+code,
+del,
+dfn,
+em,
+i,
+ins,
+kbd,
+pre,
+q,
+samp,
+tt,
+var,
+small,
+strong,
+sub,
+sup,
+object,
+iframe,
+form,
+fieldset,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figure,
+menu,
+time,
+mark,
+audio,
+video {
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: baseline;
+  white-space: normal;
+}
+article,
+aside,
+footer,
+header,
+nav,
+section,
+dialog,
+figure,
+hgroup,
+menu {
+  display: block;
+}
+blockquote:before,
+q:before {
+  content: open-quote;
+}
+blockquote:after,
+q:after {
+  content: close-quote;
+}
+blockquote,
+q {
+  quotes: "«" "»";
+}
+del,
+ins {
+  text-decoration: none;
+}
+hr {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+input {
+  margin: 0;
+  padding: 0;
+}
+nav ul {
+  list-style-type: none;
+}
+ol,
+ul {
+  list-style: none;
+}
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+}
+/*
+---------- BASE ---------- 
+*/
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+#centrar {
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 90%;
+}
