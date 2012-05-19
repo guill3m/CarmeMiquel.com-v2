@@ -1,170 +1,91 @@
 @charset "utf-8";
 /*
-Theme Name: CarmeMiquel
+Theme Name: CarmeMiquel v2.0
 Theme URI: http:/carmemiquel.com/
 Author: Guillem Andreu
 Author URI: http://guillemandreu.com/
 Description: Theme per a la web de Carme Miquel.
 Version: 2.0
 License: Private
-Tags:
+Tags: responsive, 2 columns
 */
+
 /*
 ---------- RESET ---------- 
 */
-html,
-body,
-div,
-span,
-a,
-img,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hgroup,
-p,
-dl,
-dialog,
-dt,
-dd,
-ol,
-ul,
-li,
-abbr,
-acronym,
-address,
-b,
-big,
-blockquote,
-cite,
-code,
-del,
-dfn,
-em,
-i,
-ins,
-kbd,
-pre,
-q,
-samp,
-tt,
-var,
-small,
-strong,
-sub,
-sup,
-object,
-iframe,
-form,
-fieldset,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-footer,
-header,
-nav,
-section,
-figure,
-menu,
-time,
-mark,
-audio,
-video {
-  background: transparent;
-  border: 0;
-  font-family: inherit;
-  font-size: 100%;
-  font-style: inherit;
-  font-weight: inherit;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  vertical-align: baseline;
-  white-space: normal;
+html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote, caption, cite, code, dd, del, dfn, dialog, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, ul, var, video {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	vertical-align: baseline;
+	white-space: normal;
 }
-article,
-aside,
-footer,
-header,
-nav,
-section,
-dialog,
-figure,
-hgroup,
-menu {
-  display: block;
+article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
 }
-blockquote:before,
-q:before {
-  content: open-quote;
+body {
+	line-height: 1;
 }
-blockquote:after,
-q:after {
-  content: close-quote;
+blockquote:before, q:before {
+	content: open-quote;
 }
-blockquote,
-q {
-  quotes: "«" "»";
+blockquote:after, q:after {
+	content: close-quote;
 }
-del,
-ins {
-  text-decoration: none;
+blockquote, q {
+	quotes: "«" "»";
+}
+del, ins {
+	text-decoration: none;
 }
 hr {
-  border: 0;
-  margin: 0;
-  padding: 0;
+	border: 0;
+	margin: 0;
+	padding: 0;
 }
 input {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 nav ul {
-  list-style-type: none;
+	list-style-type: none;
 }
-ol,
-ul {
-  list-style: none;
+ol, ul {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 textarea {
-  font-family: inherit;
-  font-size: 100%;
-  font-style: normal;
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  white-space: normal;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	white-space: normal;
 }
+
 /*
 ---------- BASE ---------- 
 */
-body {
-  width: 100%;
-  *zoom: 1;
+.cf:before,
+.cf:after {
+	content:"";
+	display:table;
 }
-body:before,
-body:after {
-  content: "";
-  display: table;
-}
-body:after {
-  clear: both;
+.cf:after {
+	clear:both;
 }
 #centrar {
-  margin: 0 auto;
-  max-width: 1140px;
-  width: 90%;
+	margin: 0 auto;
+	max-width: 1140px;
+	width: 90%;
 }

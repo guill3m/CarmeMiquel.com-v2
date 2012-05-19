@@ -3,52 +3,59 @@
 <head>
 	<meta charset="utf-8">
 	<title>CarmeMiquel.com v2.0</title>
-	
 	<link rel="stylesheet" href="style.css" type="text/css" />
-	
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--[if lt IE 8]><script src="iefix.css"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
 	<script src="js/prefixfree.min.js"></script>
+	<script src="js/scripts.combo.min.js"></script>
 </head>
+
 <body>
 	
 	<div id="centrar">
+	
 		<header id="header">
 			<h1>Carme Miquel</h1>
 			<nav>
 				<ul id="menu">
-					<li><span class="picto">a</span><br />
-					<a href="#">Autora</a></li>
-					<li><span class="picto">b</span><br />
-					<a href="#">Entrevistes</a></li>
-					<li><span class="picto">c</span><br />
-					<a href="#">Llibres</a></li>
-					<li><span class="picto">d</span><br />
-					<a href="#">Articles</a></li>
-					<li><span class="picto">e</span><br />
-					<a href="#">Vídeos</a></li>
-					<li><span class="picto">f</span><br />
-					<a href="#">Més sobre…</a></li>
+					<li><a href="#"><span class="picto">a</span><br />
+					Autora</a></li>
+					<li><a href="#"><span class="picto">b</span><br />
+					Entrevistes</a></li>
+					<li><a href="#"><span class="picto">c</span><br />
+					Llibres</a></li>
+					<li><a href="#"><span class="picto">d</span><br />
+					Articles</a></li>
+					<li><a href="#"><span class="picto">e</span><br />
+					Vídeos</a></li>
+					<li><a href="#"><span class="picto">f</span><br />
+					Més sobre…</a></li>
 				</ul><!-- end #menu -->
-				<div id="submenu"><!-- aquí se cargará el contenido del submenú con AJAX falso con jQuery--></div>
+				<div id="submenu"><!-- submenu content called with jQuery's AJAX --></div>
 			</nav>
 		</header><!-- end #header -->
 		
-		<section id="sidebar">
-			<h2>Titol</h2>
-			<h3>Subtitol</h3>
-			<h4>Subsubtitol</h4>
-		</section><!-- end #sidebar -->
-		
-		<section id="content">
-			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-			<p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-			<p>Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-		</section>
+		<article id="page-ID" class="page"><!-- OR #post-ID and .post -->
+			<aside id="sidebar">
+				<h2>Titol</h2>
+				<h3>Subtitol</h3>
+				<h4>Subsubtitol</h4>
+				<img src="#" alt="#" class="sidebar-img" />
+				<div class="sidebar-text"></div>
+			</aside><!-- end #sidebar -->
+			<section id="content">
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+				<p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			</section><!-- end #content -->
+		</article><!-- end #page-ID -->
 		
 		<footer id="footer">
-			<small><span class="fotter-left">© Carme Miquel, 2009–2012</span><span class="footer-right">Disseny Web: <a href="#">Guillem Andreu</a></span></small>
+			<small>
+				<span class="footer-left">© Carme Miquel, 2009–2012</span>
+				<span class="footer-right">Disseny Web: <a href="#">Guillem Andreu</a></span>
+			</small>
 		</footer><!-- end #footer -->
 		
 	</div><!-- end #centrar -->
