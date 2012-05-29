@@ -10,9 +10,7 @@ License: Private
 Tags: responsive, 2 columns
 */
 
-/*
----------- RESET ---------- 
-*/
+/* @group RESET */
 html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote, caption, cite, code, dd, del, dfn, dialog, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, ul, var, video {
 	border: 0;
 	font-family: inherit;
@@ -29,7 +27,7 @@ article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1em;
 }
 blockquote:before, q:before {
 	content: open-quote;
@@ -38,7 +36,7 @@ blockquote:after, q:after {
 	content: close-quote;
 }
 blockquote, q {
-	quotes: "«" "»";
+	quotes: "«" "»" '"' '"' "'" "'";
 }
 del, ins {
 	text-decoration: none;
@@ -72,20 +70,57 @@ textarea {
 	text-align: left;
 	white-space: normal;
 }
+/* @end RESET */
 
+/* @group BASE */
 /*
----------- BASE ---------- 
+Max Width: 1140px
+Columns: 6
+Column Width: 160px
+	1: 14.0350877193%
+	2: 30.7017543860%
+	3: 47.3684210526%
+	4: 64.0350877193%
+	5: 80.7017543860%
+	6: 97.3684210526%
+Gutter Width: 30px
+	% Gutter Width: 2.6315789474%
+	Apply Margin: 0 1.3157894737%
+
+Font Size:   16px
+Line Height: 1.3em
+
+Text Color: rgb(65,65,65) -Dark Grey-
+Section Colors:
+	Autora:      rgb( , , ) -Light Green-
+	Entrevistes: rgb( , , ) -Darkish Blue-
+	Llibres:     rgb( , , ) -Yellowish Orange-
+	Articles:    rgb( , , ) -Magenta-
+	Vídeos:      rgb( , , ) -Greenish Light Blue-
+	Més sobre:   rgb( , , ) -Red-
 */
 .cf:before,
 .cf:after {
-	content:"";
-	display:table;
+	content: "";
+	display: table;
 }
 .cf:after {
 	clear:both;
 }
-#centrar {
+body {
+	
+}
+#center {
 	margin: 0 auto;
 	max-width: 1140px;
 	width: 90%;
 }
+/* @end BASE */
+
+/* @group HEADER */
+/* @group MENU */
+/* @group SUBMENU */
+
+/* @end SUBMENU */
+/* @end MENU */
+/* @end HEADER */
