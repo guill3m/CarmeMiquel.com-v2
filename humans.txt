@@ -36,7 +36,7 @@
   Components: jQuery, PrefixFree
   Fonts: Arvo, Open Sans
   Software: Espresso, Photoshop, Illustrator, Glyphs, Smaller, Cyberduck, Dropbox, iTunes
-  Machines: Development: iMac / Testing: iMac, iPad2, iPhone4S, iPod Touch 2Gen, Dell Inspiron 6400
+  Machines: Development: iMac / Testing: iMac, iPad2, iPhone4S, iPod Touch 2G, Dell Inspiron 6400
 
 
 

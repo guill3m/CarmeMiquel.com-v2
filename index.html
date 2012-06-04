@@ -2,39 +2,42 @@
 <html lang="ca" dir="ltr">
 <head>
 	<meta charset="utf-8" />
+	
 	<title>CarmeMiquel.com v2.0</title>
+	
 	<link rel="author" href="humans.txt" />
+	
 	<link rel="stylesheet" href="style-expanded.css" type="text/css" />
+	<!--[if lt IE 8]><link rel="stylesheet" href="iefix.css" type="text/css" /><![endif]-->
+	
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<!--[if lt IE 8]><script src="iefix.css"></script><![endif]-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="js/prefixfree.min.js"></script>
 </head>
 
-<body>
+<body class="autora">
 	
-	<div id="center">
+	<div id="center" class="cf">
 	
-		<header id="header">
-			<h1>Carme Miquel</h1>
+		<header id="header" class="cf">
+			<a href="/" title="Carme Miquel"><h1><img src="img/h1.png" alt="Carme Miquel" /></h1></a>
 			<nav>
 				<ul id="menu">
-					<li><a href="#"><span class="picto">a</span>Autora</a></li>
-					<li><a href="#"><span class="picto">b</span>Entrevistes</a></li>
-					<li><a href="#"><span class="picto">c</span>Llibres</a></li>
-					<li><a href="#"><span class="picto">d</span>Articles</a></li>
-					<li><a href="#"><span class="picto">e</span>Vídeos</a></li>
-					<li><a href="#"><span class="picto">f</span>Més sobre…</a></li>
+					<li class="autora"><a href="#"><span class="picto">a</span>Autora</a></li><li class="entrevistes"><a href="#"><span class="picto">b</span>Entrevistes</a></li><li class="llibres"><a href="#"><span class="picto">c</span>Llibres</a></li><li class="articles"><a href="#"><span class="picto">d</span>Articles</a></li><li class="videos"><a href="#"><span class="picto">e</span>Vídeos</a></li><li class="mes-sobre"><a href="#"><span class="picto">f</span>Més sobre…</a></li>
 				</ul><!-- end #menu -->
-				<div id="submenu"><!-- submenu content called with jQuery's AJAX --></div>
+				<div id="submenu" class="cf">
+					<!-- submenu content called with AJAX -->
+				</div><!-- en #submenu -->
 			</nav>
 		</header><!-- end #header -->
 		
-		<article id="page-ID" class="page">
+		<article id="page-ID" class="page cf">
 			<aside id="sidebar">
-				<h2>Titol</h2>
-				<h3>Subtitol</h3>
-				<h4>Subsubtitol</h4>
+				<hgroup>
+					<h2>Titol</h2>
+					<h3>Subtitol</h3>
+					<h4>Subsubtitol</h4>
+				</hgroup>
 				<img src="#" alt="#" class="sidebar-img" />
 				<div class="sidebar-txt"></div>
 			</aside><!-- end #sidebar -->
@@ -45,10 +48,10 @@
 			</section><!-- end #content -->
 		</article><!-- end #page-ID -->
 		
-		<footer id="footer">
+		<footer id="footer" class="cf">
 			<small>
 				<span class="footer-left">© Carme Miquel, 2009–2012</span>
-				<span class="footer-right">Disseny Web: <a href="#">Guillem Andreu</a></span>
+				<span class="footer-right">Gestionat amb <a href="#">Wordpress</a> | Disseny Web: <a href="#">Guillem Andreu</a></span>
 			</small>
 		</footer><!-- end #footer -->
 		

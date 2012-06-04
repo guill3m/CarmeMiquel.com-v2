@@ -7,7 +7,7 @@ Author URI: http://guillemandreu.com/
 Description: Theme per a la web de Carme Miquel.
 Version: 2.0
 License: Private
-Tags: responsive, 2 columns
+Tags: flexible, responsive, 2 columns
 */
 
 /* @group RESET */
@@ -72,22 +72,21 @@ textarea {
 }
 /* @end RESET */
 
-/* @group BASE */
 /*
 Max Width: 1140px
 Columns: 6
 Column Width: 160px
-	1: 14.0350877193%
-	2: 30.7017543860%
-	3: 47.3684210526%
-	4: 64.0350877193%
-	5: 80.7017543860%
-	6: 97.3684210526%
+	1: 14,035087719298%  - 160px / 1140px
+	2: 30.701754385965%  - 350px / 1140px
+	3: 47.368421052632%  - 540px / 1140px
+	4: 64.035087719298%  - 730px / 1140px
+	5: 80.701754385965%  - 920px / 1140px
+	6: 97.368421052632%  - 1110px / 1140px
 Gutter Width: 30px
-	% Gutter Width: 2.6315789474%
-	Apply Margin: 0 1.3157894737%
+	% Gutter Width: 2.631578947368%  - 30px / 1140px
+	Apply Margin: 0 1.315789473684%  - 30px / 1140px / 2
 
-Font Size:   16px
+Font Size:   16px - 1em
 Line Height: 1.3em
 
 Text Color: rgb(65,65,65) -Dark Grey-
@@ -99,6 +98,8 @@ Section Colors:
 	Vídeos:      rgb( , , ) -Greenish Light Blue-
 	Més sobre:   rgb( , , ) -Red-
 */
+
+/* @group BASE */
 .cf:before,
 .cf:after {
 	content: "";
@@ -108,19 +109,172 @@ Section Colors:
 	clear:both;
 }
 body {
-	
+	background: url('img/bg.jpg') repeat #fff;
+	color: rgb(65,65,65);
 }
 #center {
 	margin: 0 auto;
 	max-width: 1140px;
 	width: 90%;
 }
+a {
+	color: rgb(65,65,65);
+	text-decoration: none;
+	transition: all .3s ease-out;
+}
 /* @end BASE */
 
 /* @group HEADER */
+#header {
+	margin: 0 0 45px;
+}
+#header h1 {
+	margin: 30px auto;
+	text-align: center;
+	width: 47.368421052632%;  /* 3 Columns - 540px / 1140px */
+}
+#header h1 img {
+	max-width: 478px;
+	width: 100%;
+}
+
 /* @group MENU */
+#menu li {
+	display: inline-block;
+	font-size: 1em;
+	margin: 0 1.315789473684%;  /* 30px / 1140px / 2 */
+	text-transform: uppercase;
+	width: 14.035087719298%;  /* 1 Column - 160px / 1140px */
+}
+#menu li a {
+	color: rgb(65,65,65);
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+}
+.picto {
+	font-size: 4.75em;  /* 76px / 16px */
+	line-height: 1em;
+}
+.picto:after {
+	content: "\A";
+	white-space: pre;
+}
+
 /* @group SUBMENU */
+#submenu {
+	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
+	width: 97.368421052632%;  /* 6 Columns - 1110px / 1140px; */
+}
 
 /* @end SUBMENU */
 /* @end MENU */
 /* @end HEADER */
+
+/* @group CONTENT */
+#content {
+	float: right;
+	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
+	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+}
+#content p {
+	margin-top: 1.625em;  /* 26px / 16px */
+}
+#content p + p {
+	margin-top: 1em;
+}
+
+/* @end CONTENT */
+
+/* @group SIDEBAR */
+#sidebar {
+	float: left;
+	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
+	width: 30.701754385965%;  /* 2 Columns -  350px / 1140px */
+}
+h2 {
+	font-size: 3em;  /* 48px / 16px */
+	line-height: 1em;
+}
+h3 {
+	font-size: 2.3125em;  /* 37px / 16px */
+	line-height: 1.13513513513514em;  /* 42px / 37px */
+}
+h4 {
+	font-size: 1.625em;  /* 26px / 16px */
+	line-height: 1.38461538461538em;  /* 36px / 26px */
+}
+
+/* @end SIDEBAR */
+
+/* @group FOOTER */
+#footer {
+	border-top: 3px solid rgb(65,65,65);
+	margin: 30px 1.315789473684% 0 34.649122807017%;
+	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+}
+#footer small {
+	font-size: 0.6875em;  /* 11px / 16px */
+	line-height: 2.90909090909091em;  /* 32px / 11px */	
+}
+.footer-left {
+	float: left;
+}
+.footer-right {
+	float: right;
+}
+
+/* @end FOOTER */
+
+/* @group SECTION COLORS */
+.autora #footer {
+	border-top-color: ;
+}
+.entrevistes #footer {
+	border-top-color: ;
+}
+.llibres #footer {
+	border-top-color: ;
+}
+.articles #footer {
+	border-top-color: ;
+}
+.videos #footer {
+	border-top-color: ;
+}
+.mes-sobre #footer {
+	border-top-color: ;
+}
+.autora a,
+#menu .autora a,
+.autora h2 {
+	color: ;
+}
+.entrevistes a,
+#menu .entrevistes a,
+.entrevistes h2 {
+	color: ;
+}
+.llibres a,
+#menu .llibres a,
+.llibres h2 {
+	color: ;
+}
+.articles a,
+#menu .articles a,
+.articles h2 {
+	color: ;
+}
+.videos a,
+#menu .videos a,
+.videos h2 {
+	color: ;
+}
+.mes-sobre a,
+#menu .mes-sobre a,
+.mes-sobre h2 {
+	color: ;
+}
+
+/* @end SECTION COLORS */
