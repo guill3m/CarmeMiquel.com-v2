@@ -17,6 +17,7 @@ html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote
 	font-size: 100%;
 	font-style: inherit;
 	font-weight: inherit;
+	line-height: 1em;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -26,8 +27,8 @@ html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote
 article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	line-height: 1em;
+a img {
+	border: 0;
 }
 blockquote:before, q:before {
 	content: open-quote;
@@ -56,6 +57,15 @@ nav ul {
 ol, ul {
 	list-style: none;
 }
+sub, sup {
+	font-size: .5em;
+}
+sub {
+	vertical-align: sub;
+}
+sup {
+	vertical-align: super;
+}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -70,7 +80,81 @@ textarea {
 	text-align: left;
 	white-space: normal;
 }
+.cf:before,
+.cf:after {
+	content: "";
+	display: table;
+}
+.cf:after {
+	clear:both;
+}
 /* @end RESET */
+
+/* @group FONT-FACE */
+@font-face {
+	font-family: 'Arvo';
+	src: url('font/arvo-webfont.eot');
+	src: url('font/arvo-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('font/arvo-webfont.woff') format('woff'),
+	     url('font/arvo-webfont.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Arvo';
+	src: url('font/arvo-bold-webfont.eot');
+	src: url('font/arvo-bold-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('font/arvo-bold-webfont.woff') format('woff'),
+	     url('font/arvo-bold-webfont.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/opensans-webfont.eot');
+	src: url('font/opensans-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('font/opensans-webfont.woff') format('woff'),
+	     url('font/opensans-webfont.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/opensans-italic-webfont.eot');
+	src: url('font/opensans-italic-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('font/opensans-italic-webfont.woff') format('woff'),
+	     url('font/opensans-italic-webfont.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/opensans-semibold-webfont.eot');
+	src: url('font/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('font/opensans-semibold-webfont.woff') format('woff'),
+	     url('font/opensans-semibold-webfont.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/opensans-bold-webfont.eot');
+	src: url('font/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('font/opensans-bold-webfont.woff') format('woff'),
+	     url('font/opensans-bold-webfont.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('font/opensans-bolditalic-webfont.eot');
+	src: url('font/opensans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('font/opensans-bolditalic-webfont.woff') format('woff'),
+	     url('font/opensans-bolditalic-webfont.ttf') format('truetype');
+	font-weight: 700;
+	font-style: italic;
+}
+/* @end FONT-FACE */
 
 /*
 Max Width: 1140px
@@ -100,22 +184,26 @@ Section Colors:
 */
 
 /* @group BASE */
-.cf:before,
-.cf:after {
-	content: "";
-	display: table;
-}
-.cf:after {
-	clear:both;
-}
 body {
 	background: url('img/bg.jpg') repeat #fff;
 	color: rgb(65,65,65);
+	font: 400 100% "Open Sans", sans-serif;
 }
 #center {
 	margin: 0 auto;
 	max-width: 1140px;
 	width: 90%;
+}
+h2,
+h4 {
+	font-family: Arvo, serif;
+}
+h2,
+b, strong {
+	font-weight: 700;
+}
+p {
+	line-height: 1.3em;
 }
 a {
 	color: rgb(65,65,65);
@@ -149,6 +237,7 @@ a {
 #menu li a {
 	color: rgb(65,65,65);
 	display: block;
+	font-weight: 600;
 	text-align: center;
 	text-decoration: none;
 	width: 100%;
@@ -167,7 +256,6 @@ a {
 	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
 	width: 97.368421052632%;  /* 6 Columns - 1110px / 1140px; */
 }
-
 /* @end SUBMENU */
 /* @end MENU */
 /* @end HEADER */
@@ -184,7 +272,6 @@ a {
 #content p + p {
 	margin-top: 1em;
 }
-
 /* @end CONTENT */
 
 /* @group SIDEBAR */
@@ -205,7 +292,6 @@ h4 {
 	font-size: 1.625em;  /* 26px / 16px */
 	line-height: 1.38461538461538em;  /* 36px / 26px */
 }
-
 /* @end SIDEBAR */
 
 /* @group FOOTER */
@@ -213,10 +299,11 @@ h4 {
 	border-top: 3px solid rgb(65,65,65);
 	margin: 30px 1.315789473684% 0 34.649122807017%;
 	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+	padding: 7px 3px;
 }
 #footer small {
 	font-size: 0.6875em;  /* 11px / 16px */
-	line-height: 2.90909090909091em;  /* 32px / 11px */	
+	line-height: 2.90909090909091em;  /* 32px / 11px */
 }
 .footer-left {
 	float: left;
@@ -224,7 +311,6 @@ h4 {
 .footer-right {
 	float: right;
 }
-
 /* @end FOOTER */
 
 /* @group SECTION COLORS */
@@ -276,5 +362,4 @@ h4 {
 .mes-sobre h2 {
 	color: ;
 }
-
 /* @end SECTION COLORS */
