@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 /*
 Theme Name: CarmeMiquel v2.0
 Theme URI: http:/carmemiquel.com/
@@ -10,7 +11,10 @@ License: Private
 Tags: flexible, responsive, 2 columns
 */
 
+
+
 /* @group RESET */
+
 html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote, caption, cite, code, dd, del, dfn, dialog, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, ul, var, video {
 	border: 0;
 	font-family: inherit;
@@ -24,52 +28,68 @@ html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote
 	vertical-align: baseline;
 	white-space: normal;
 }
+
 article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 a img {
 	border: 0;
 }
-blockquote:before, q:before {
-	content: open-quote;
-}
-blockquote:after, q:after {
-	content: close-quote;
-}
-blockquote, q {
+
+blockquote,
+q {
 	quotes: "«" "»" '"' '"' "'" "'";
 }
-del, ins {
+
+	blockquote:before,
+	q:before {
+		content: open-quote;
+	}
+
+	blockquote:after,
+	q:after {
+		content: close-quote;
+	}
+
+del,
+ins {
 	text-decoration: none;
 }
+
 hr {
 	border: 0;
 	margin: 0;
 	padding: 0;
 }
+
 input {
 	margin: 0;
 	padding: 0;
 }
+
 nav ul {
 	list-style-type: none;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-sub, sup {
+
+sub,
+sup {
 	font-size: .5em;
 }
+
 sub {
 	vertical-align: sub;
 }
+
 sup {
 	vertical-align: super;
 }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+
 textarea {
 	font-family: inherit;
 	font-size: 100%;
@@ -80,83 +100,101 @@ textarea {
 	text-align: left;
 	white-space: normal;
 }
+
 .cf:before,
 .cf:after {
 	content: "";
 	display: table;
 }
+
 .cf:after {
 	clear:both;
 }
+
 /* @end RESET */
 
+
+
 /* @group FONT-FACE */
+
 @font-face {
 	font-family: 'Arvo';
-	src: url('font/arvo-webfont.eot');
-	src: url('font/arvo-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('font/arvo-webfont.woff') format('woff'),
-	     url('font/arvo-webfont.ttf') format('truetype');
+	src: url(font/arvo.eot);
+	src: url(font/arvo.eot?#iefix) format('embedded-opentype'),
+	     url(font/arvo.woff) format('woff'),
+	     url(font/arvo.ttf) format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
+
 @font-face {
 	font-family: 'Arvo';
-	src: url('font/arvo-bold-webfont.eot');
-	src: url('font/arvo-bold-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('font/arvo-bold-webfont.woff') format('woff'),
-	     url('font/arvo-bold-webfont.ttf') format('truetype');
+	src: url(font/arvo-bold.eot);
+	src: url(font/arvo-bold.eot?#iefix) format('embedded-opentype'),
+	     url(font/arvo-bold.woff) format('woff'),
+	     url(font/arvo-bold.ttf) format('truetype');
 	font-weight: 700;
 	font-style: normal;
 }
+
 @font-face {
 	font-family: 'Open Sans';
-	src: url('font/opensans-webfont.eot');
-	src: url('font/opensans-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('font/opensans-webfont.woff') format('woff'),
-	     url('font/opensans-webfont.ttf') format('truetype');
+	src: url(font/opensans.eot);
+	src: url(font/opensans.eot?#iefix) format('embedded-opentype'),
+	     url(font/opensans.woff) format('woff'),
+	     url(font/opensans.ttf) format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
+
 @font-face {
 	font-family: 'Open Sans';
-	src: url('font/opensans-italic-webfont.eot');
-	src: url('font/opensans-italic-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('font/opensans-italic-webfont.woff') format('woff'),
-	     url('font/opensans-italic-webfont.ttf') format('truetype');
+	src: url(font/opensans-italic.eot);
+	src: url(font/opensans-italic.eot?#iefix) format('embedded-opentype'),
+	     url(font/opensans-italic.woff) format('woff'),
+	     url(font/opensans-italic.ttf) format('truetype');
 	font-weight: 400;
 	font-style: italic;
 }
+
 @font-face {
 	font-family: 'Open Sans';
-	src: url('font/opensans-semibold-webfont.eot');
-	src: url('font/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('font/opensans-semibold-webfont.woff') format('woff'),
-	     url('font/opensans-semibold-webfont.ttf') format('truetype');
+	src: url(font/opensans-semibold.eot);
+	src: url(font/opensans-semibold.eot?#iefix) format('embedded-opentype'),
+	     url(font/opensans-semibold.woff) format('woff'),
+	     url(font/opensans-semibold.ttf) format('truetype');
 	font-weight: 600;
 	font-style: normal;
 }
+
 @font-face {
 	font-family: 'Open Sans';
-	src: url('font/opensans-bold-webfont.eot');
-	src: url('font/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('font/opensans-bold-webfont.woff') format('woff'),
-	     url('font/opensans-bold-webfont.ttf') format('truetype');
+	src: url(font/opensans-bold.eot);
+	src: url(font/opensans-bold.eot?#iefix) format('embedded-opentype'),
+	     url(font/opensans-bold.woff) format('woff'),
+	     url(font/opensans-bold.ttf) format('truetype');
 	font-weight: 700;
 	font-style: normal;
 }
+
 @font-face {
 	font-family: 'Open Sans';
-	src: url('font/opensans-bolditalic-webfont.eot');
-	src: url('font/opensans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('font/opensans-bolditalic-webfont.woff') format('woff'),
-	     url('font/opensans-bolditalic-webfont.ttf') format('truetype');
+	src: url(font/opensans-bolditalic.eot);
+	src: url(font/opensans-bolditalic.eot?#iefix) format('embedded-opentype'),
+	     url(font/opensans-bolditalic.woff) format('woff'),
+	     url(font/opensans-bolditalic.ttf) format('truetype');
 	font-weight: 700;
 	font-style: italic;
 }
+
 /* @end FONT-FACE */
 
+
+
 /*
+DESIGN GUIDES
+-------------
+
 Max Width: 1140px
 Columns: 6
 Column Width: 160px
@@ -173,193 +211,247 @@ Gutter Width: 30px
 Font Size:   16px - 1em
 Line Height: 1.3em
 
-Text Color: rgb(65,65,65) -Dark Grey-
+Text Color: rgb(65,65,65)    -Dark Grey-
+            rgb(195,195,195) -Light Grey-
 Section Colors:
-	Autora:      rgb( , , ) -Light Green-
-	Entrevistes: rgb( , , ) -Darkish Blue-
-	Llibres:     rgb( , , ) -Yellowish Orange-
-	Articles:    rgb( , , ) -Magenta-
-	Vídeos:      rgb( , , ) -Greenish Light Blue-
-	Més sobre:   rgb( , , ) -Red-
+	Autora:      rgb(140,195,75) -Light Green-
+	Entrevistes: rgb(75,135,195) -Darkish Blue-
+	Llibres:     rgb(235,175,45) -Yellowish Orange-
+	Articles:    rgb(195,75,130) -Magenta-
+	Vídeos:      rgb(75,185,195) -Greenish Light Blue-
+	Més sobre:   rgb(195,75,75)  -Red-
 */
 
+
+
 /* @group BASE */
+
 body {
-	background: url('img/bg.jpg') repeat #fff;
+	background: url(img/bg.jpg) repeat #fff;
 	color: rgb(65,65,65);
-	font: 400 100% "Open Sans", sans-serif;
+	font: 400 100% 'Open Sans', sans-serif;
 }
+
 #center {
 	margin: 0 auto;
 	max-width: 1140px;
 	width: 90%;
 }
-h2,
-h4 {
-	font-family: Arvo, serif;
-}
-h2,
-b, strong {
-	font-weight: 700;
-}
+
 p {
 	line-height: 1.3em;
 }
+
+b,
+strong {
+	font-weight: 700;
+}
+
+i,
+em {
+	font-style: italic;
+}
+
 a {
 	color: rgb(65,65,65);
 	text-decoration: none;
 	transition: all .3s ease-out;
 }
+
 /* @end BASE */
 
+
+
 /* @group HEADER */
+
 #header {
 	margin: 0 0 45px;
 }
-#header h1 {
-	margin: 30px auto;
-	text-align: center;
-	width: 47.368421052632%;  /* 3 Columns - 540px / 1140px */
-}
-#header h1 img {
-	max-width: 478px;
-	width: 100%;
-}
+
+	#header h1 {
+		margin: 30px auto;
+		text-align: center;
+		width: 47.368421052632%;  /* 3 Columns - 540px / 1140px */
+	}
+
+	#header img {
+		max-width: 478px;
+		width: 100%;
+	}
+
 
 /* @group MENU */
+
 #menu li {
 	display: inline-block;
+	float: left;
 	font-size: 1em;
 	margin: 0 1.315789473684%;  /* 30px / 1140px / 2 */
 	text-transform: uppercase;
 	width: 14.035087719298%;  /* 1 Column - 160px / 1140px */
 }
-#menu li a {
-	color: rgb(65,65,65);
-	display: block;
-	font-weight: 600;
-	text-align: center;
-	text-decoration: none;
-	width: 100%;
-}
-.picto {
+
+	#menu li a {
+		color: rgb(65,65,65);
+		display: block;
+		font-weight: 600;
+		text-align: center;
+		text-decoration: none;
+		width: 100%;
+	}
+
+[data-icon] {
 	font-size: 4.75em;  /* 76px / 16px */
 	line-height: 1em;
-}
-.picto:after {
-	content: "\A";
-	white-space: pre;
+	speak: none;
 }
 
+	[data-icon]:before {
+		content: attr(data-icon);
+	}
+
+	[data-icon]:after {
+		content: "\A";
+		white-space: pre;
+	}
+
+
 /* @group SUBMENU */
+
 #submenu {
 	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
 	width: 97.368421052632%;  /* 6 Columns - 1110px / 1140px; */
 }
+
 /* @end SUBMENU */
+
 /* @end MENU */
+
 /* @end HEADER */
 
+
+
 /* @group CONTENT */
+
 #content {
 	float: right;
 	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
 	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
 }
-#content p {
-	margin-top: 1.625em;  /* 26px / 16px */
-}
-#content p + p {
-	margin-top: 1em;
-}
+
+	#content p {
+		margin-top: 1.625em;  /* 26px / 16px */
+	}
+
+	#content p + p {
+		margin-top: 1em;
+	}
+
 /* @end CONTENT */
 
+
+
 /* @group SIDEBAR */
+
 #sidebar {
 	float: left;
 	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
 	width: 30.701754385965%;  /* 2 Columns -  350px / 1140px */
 }
+
+h2,
+h4 {
+	font-family: Arvo, serif;
+}
+
 h2 {
+	font-weight: 700;
 	font-size: 3em;  /* 48px / 16px */
 	line-height: 1em;
 }
+
 h3 {
 	font-size: 2.3125em;  /* 37px / 16px */
+	font-weight: 600;
 	line-height: 1.13513513513514em;  /* 42px / 37px */
 }
+
 h4 {
+	color: rgb(195,195,195);
 	font-size: 1.625em;  /* 26px / 16px */
 	line-height: 1.38461538461538em;  /* 36px / 26px */
 }
+
+.sidebar-img {
+	max-width: 100%;
+}
+
 /* @end SIDEBAR */
 
+
+
 /* @group FOOTER */
+
 #footer {
-	border-top: 3px solid rgb(65,65,65);
-	margin: 30px 1.315789473684% 0 34.649122807017%;
+	color: rgb(195,195,195);
+	margin: 40px 1.315789473684% 10px 34.649122807017%;
 	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
-	padding: 7px 3px;
 }
-#footer small {
-	font-size: 0.6875em;  /* 11px / 16px */
-	line-height: 2.90909090909091em;  /* 32px / 11px */
-}
+
+	#footer small {
+		font-family: Arvo, serif;
+		font-size: .6875em;  /* 11px / 16px */
+		line-height: 2.90909090909091em;  /* 32px / 11px */
+	}
+
 .footer-left {
 	float: left;
 }
+
 .footer-right {
 	float: right;
 }
+
 /* @end FOOTER */
 
+
+
 /* @group SECTION COLORS */
-.autora #footer {
-	border-top-color: ;
-}
-.entrevistes #footer {
-	border-top-color: ;
-}
-.llibres #footer {
-	border-top-color: ;
-}
-.articles #footer {
-	border-top-color: ;
-}
-.videos #footer {
-	border-top-color: ;
-}
-.mes-sobre #footer {
-	border-top-color: ;
-}
-.autora a,
+
 #menu .autora a,
-.autora h2 {
-	color: ;
+.autora h2,
+.autora a {
+	color: rgb(140,195,75);
 }
-.entrevistes a,
+
 #menu .entrevistes a,
-.entrevistes h2 {
-	color: ;
+.entrevistes h2,
+.entrevistes a {
+	color: rgb(75,135,195);
 }
-.llibres a,
+
 #menu .llibres a,
-.llibres h2 {
-	color: ;
+.llibres h2,
+.llibres a {
+	color: rgb(235,175,45);
 }
-.articles a,
+
 #menu .articles a,
-.articles h2 {
-	color: ;
+.articles h2,
+.articles a {
+	color: rgb(195,75,130);
 }
-.videos a,
+
 #menu .videos a,
-.videos h2 {
-	color: ;
+.videos h2,
+.videos a {
+	color: rgb(75,185,195);
 }
-.mes-sobre a,
+
 #menu .mes-sobre a,
-.mes-sobre h2 {
-	color: ;
+.mes-sobre h2,
+.mes-sobre a {
+	color: rgb(195,75,75);
 }
+
 /* @end SECTION COLORS */

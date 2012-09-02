@@ -20,7 +20,7 @@
 /* THANKS */
 
   Alberto Blázquez
-    Site: http://albertoblazquez.net/
+    Site: http://albertoblazquez.net
     Twitter: @albertoblaz
     Location: Madrid, Spain
 
@@ -28,15 +28,15 @@
 
 /* SITE */
 
-  Last update: 2012/05/21
+  Last update: 2012/09/02
   Language: Catalan
   Standards: HTML5, CSS3
   Style: Fluid / Responsive
   CMS: Wordpress
-  Components: jQuery, PrefixFree
+  Components: jQuery, PrefixFree, html5shiv
   Fonts: Arvo, Open Sans
   Software: Espresso, Photoshop, Illustrator, Glyphs, Smaller, Cyberduck, Dropbox, iTunes
-  Machines: Development: iMac / Testing: iMac, iPad2, iPhone4S, iPod Touch 2G, Dell Inspiron 6400
+  Machines: Development: iMac, MacBook Pro Retina / Testing: iMac, MacBook Pro Retina, iPad2, iPhone4S, iPod Touch 2G, Dell Inspiron 6400
 
 
 

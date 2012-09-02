@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="ca" dir="ltr">
+
+<html dir="ltr" lang="ca">
+
 <head>
+
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>CarmeMiquel.com v2.0</title>
+	<meta name="description" content="Web de l'escriptora valenciana Carme Miquel i Diego. Ací trobaràs informació sobre els seus llibres, articles, entrevistes, i més." />
 
-	<link rel="author" href="humans.txt" />
+	<link rel="author" href="http://carmemiquel.com/humans.txt" />
+	<link rel="canonical" href="http://carmemiquel.com" />
 
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	<!--[if lt IE 8]><link rel="stylesheet" href="iefix.css" type="text/css" /><![endif]-->
 
-	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<script src="js/prefixfree.min.js"></script>
+	<!--[if lt IE 9]><script src="js/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+	<script src="js/prefixfree.min.js" type="text/javascript"></script>
+
 </head>
 
 <body class="autora">
 
-	<div id="center" class="cf">
+	<div id="center">
 
-		<header id="header" class="cf">
-			<h1><a href="/" title="Carme Miquel"><img src="img/h1.png" alt="Carme Miquel" title="Carme Miquel" /></a></h1>
+		<header id="header">
+			<h1><a href="http://carmemiquel.com" title="Carme Miquel"><img src="img/h1.png" alt="Carme Miquel" title="Carme Miquel" /></a></h1>
 			<nav>
-				<ul id="menu">
-					<li class="autora"><a href="#"><span class="picto">a</span>Autora</a></li><li class="entrevistes"><a href="#"><span class="picto">b</span>Entrevistes</a></li><li class="llibres"><a href="#"><span class="picto">c</span>Llibres</a></li><li class="articles"><a href="#"><span class="picto">d</span>Articles</a></li><li class="videos"><a href="#"><span class="picto">e</span>Vídeos</a></li><li class="mes-sobre"><a href="#"><span class="picto">f</span>Més sobre…</a></li>
+				<ul id="menu" class="cf">
+					     <li class="autora"><a href="#"><span data-icon="a"><!--[if lt IE 8]>a<![endif]--></span>Autora</a>
+					</li><li class="entrevistes"><a href="#"><span data-icon="b"><!--[if lt IE 8]>b<![endif]--></span>Entrevistes</a>
+					</li><li class="llibres"><a href="#"><span data-icon="c"><!--[if lt IE 8]>c<![endif]--></span>Llibres</a>
+					</li><li class="articles"><a href="#"><span data-icon="d"><!--[if lt IE 8]>d<![endif]--></span>Articles</a>
+					</li><li class="videos"><a href="#"><span data-icon="e"><!--[if lt IE 8]>e<![endif]--></span>Vídeos</a>
+					</li><li class="mes-sobre"><a href="#"><span data-icon="f"><!--[if lt IE 8]>f<![endif]--></span>Més sobre…</a>
+					</li>
 				</ul><!-- end #menu -->
 				<div id="submenu" class="cf">
 					<!-- submenu content called with AJAX -->
@@ -42,8 +55,8 @@
 			</aside><!-- end #sidebar -->
 			<section id="content">
 				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-				<p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis <em>parturient montes</em>, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. <strong>Fusce dapibus</strong>, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p>Nullam quis risus eget urna <a href="#">mollis ornare</a> vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 			</section><!-- end #content -->
 		</article><!-- end #page-ID -->
 
@@ -56,7 +69,8 @@
 
 	</div><!-- end #center -->
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="js/jquery-1.8.1.min" type="text/javascript"></script>
 
 </body>
+
 </html>
