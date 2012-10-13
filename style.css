@@ -12,7 +12,6 @@ Tags: flexible, responsive, 2 columns
 */
 
 
-
 /* @group RESET */
 
 html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote, caption, cite, code, dd, del, dfn, dialog, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, ul, var, video {
@@ -114,7 +113,6 @@ textarea {
 /* @end RESET */
 
 
-
 /* @group FONT-FACE */
 
 @font-face {
@@ -190,15 +188,14 @@ textarea {
 /* @end FONT-FACE */
 
 
-
 /*
-DESIGN GUIDES
--------------
+# DESIGN GUIDES #
+-----------------
 
 Max Width: 1140px
 Columns: 6
 Column Width: 160px
-	1: 14,035087719298%  - 160px / 1140px
+	1: 14.035087719298%  - 160px / 1140px
 	2: 30.701754385965%  - 350px / 1140px
 	3: 47.368421052632%  - 540px / 1140px
 	4: 64.035087719298%  - 730px / 1140px
@@ -223,23 +220,29 @@ Section Colors:
 */
 
 
-
 /* @group BASE */
 
 body {
-	background: url(img/bg.jpg) repeat #fff;
+	background: url(img/bg.jpg) repeat 0 0 #fff;
 	color: rgb(65,65,65);
-	font: 400 100% 'Open Sans', sans-serif;
+	font: 400 100% 'Open Sans', sans-serif;  /* 16px */
 }
 
 #center {
 	margin: 0 auto;
 	max-width: 1140px;
-	width: 90%;
+	width: 95%;
 }
 
 p {
-	line-height: 1.3em;
+	line-height: 1.4em;  /* 21px / 15px */
+	font-size: .9375em; /* 15px / 16px */
+}
+
+a {
+	color: rgb(65,65,65);
+	text-decoration: none;
+	transition: all .3s ease-out;
 }
 
 b,
@@ -252,68 +255,61 @@ em {
 	font-style: italic;
 }
 
-a {
-	color: rgb(65,65,65);
-	text-decoration: none;
-	transition: all .3s ease-out;
-}
-
 /* @end BASE */
-
 
 
 /* @group HEADER */
 
 #header {
-	margin: 0 0 45px;
+	margin: 0 0 40px;
 }
 
-	#header h1 {
-		margin: 30px auto;
-		text-align: center;
-		width: 47.368421052632%;  /* 3 Columns - 540px / 1140px */
-	}
+#header h1 {
+	margin: 20px auto;
+	text-align: center;
+	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+}
 
-	#header img {
-		max-width: 478px;
-		width: 100%;
-	}
+#header img {
+	max-width: 100%;
+}
+
+/* @end HEADER */
 
 
 /* @group MENU */
 
 #menu li {
-	display: inline-block;
-	float: left;
-	font-size: 1em;
+	display: block;
+	font-size: .9375em; /* 15px / 16px */
 	margin: 0 1.315789473684%;  /* 30px / 1140px / 2 */
 	text-transform: uppercase;
-	width: 14.035087719298%;  /* 1 Column - 160px / 1140px */
+	width: 97.368421052632%;  /* 6 Columns - 1110px / 1140px */
 }
 
-	#menu li a {
-		color: rgb(65,65,65);
-		display: block;
-		font-weight: 600;
-		text-align: center;
-		text-decoration: none;
-		width: 100%;
-	}
+#menu a {
+	color: rgb(65,65,65);
+	display: block;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+}
 
 [data-icon] {
-	font-size: 4.75em;  /* 76px / 16px */
-	line-height: 1em;
 	speak: none;
+	text-transform: lowercase;
 }
 
-	[data-icon]:before {
-		content: attr(data-icon);
-	}
+[data-icon]:before {
+	content: attr(data-icon);
+}
 
-	[data-icon]:after {
-		content: "\A";
-		white-space: pre;
-	}
+[data-icon]:after {
+	content: " ";
+}
+
+/* @end MENU */
 
 
 /* @group SUBMENU */
@@ -325,38 +321,30 @@ a {
 
 /* @end SUBMENU */
 
-/* @end MENU */
-
-/* @end HEADER */
-
-
 
 /* @group CONTENT */
 
 #content {
-	float: right;
 	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
-	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+	width: 97.368421052632%;  /* 6 Columns - 1110px / 1140px; */
 }
 
-	#content p {
-		margin-top: 1.625em;  /* 26px / 16px */
-	}
+#content p {
+	margin-top: 26px;
+}
 
-	#content p + p {
-		margin-top: 1em;
-	}
+#content p + p {
+	margin-top: 1em;
+}
 
 /* @end CONTENT */
-
 
 
 /* @group SIDEBAR */
 
 #sidebar {
-	float: left;
 	margin:  0 1.315789473684%;  /* 30px / 1140px / 2 */
-	width: 30.701754385965%;  /* 2 Columns -  350px / 1140px */
+	width: 97.368421052632%;  /* 6 Columns - 1110px / 1140px; */
 }
 
 h2,
@@ -389,31 +377,25 @@ h4 {
 /* @end SIDEBAR */
 
 
-
 /* @group FOOTER */
 
 #footer {
 	color: rgb(195,195,195);
-	margin: 40px 1.315789473684% 10px 34.649122807017%;
-	width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+	margin: 40px 1.315789473684% 15px;  /* 30px / 1140px / 2 */
+	width: 97.368421052632%;  /* 6 Columns - 1110px / 1140px */
 }
 
-	#footer small {
-		font-family: Arvo, serif;
-		font-size: .6875em;  /* 11px / 16px */
-		line-height: 2.90909090909091em;  /* 32px / 11px */
-	}
-
-.footer-left {
-	float: left;
+#footer small {
+	font-family: Arvo, serif;
+	font-size: .625em;  /* 10px / 16px */
 }
 
-.footer-right {
-	float: right;
+.footer-right:before {
+	content: "\A";
+	white-space: pre;
 }
 
 /* @end FOOTER */
-
 
 
 /* @group SECTION COLORS */
@@ -455,3 +437,174 @@ h4 {
 }
 
 /* @end SECTION COLORS */
+
+
+
+/* Begin Media Queries */
+
+
+@media screen and (min-width: 400px) {
+
+	/* @group FOOTER */
+
+	#footer small {
+			line-height: 32px;
+		}
+
+	.footer-left {
+		float: left;
+	}
+
+	.footer-right {
+		float: right;
+	}
+
+	.footer-right:before {
+		content: " ";
+	}
+
+	/* @end FOOTER */
+
+}  /* min-width: 400px */
+
+
+
+@media screen and (min-width: 500px) {
+
+	/* @group HEADER */
+
+	#header h1 {
+		width: 47.368421052632%;  /* 3 Columns - 540px / 1140px */
+	}
+
+	/* @end HEADER */
+
+}  /* min-width: 500px */
+
+
+
+@media screen and (min-width: 620px) {
+
+	/* @group MENU */
+
+	#menu li {
+		display: inline-block;
+		font-size: .8125em; /* 13px / 16px */
+		margin: 0 1.315789473684%;  /* 30px / 1140px / 2 */
+		text-transform: uppercase;
+		width: 14.035087719298%;  /* 1 Column - 160px / 1140px */
+	}
+
+	#menu a {
+		display: block;
+		opacity: .4;
+	}
+
+	#menu:hover .current-menu-item a,
+	#menu:focus .current-menu-item a {
+		opacity: .7;
+	}
+
+	#menu .current-menu-item a,
+	#menu .current-menu-item a:hover,
+	#menu .current-menu-item a:focus,
+	#menu a:hover,
+	#menu a:focus {
+		opacity: 1;
+	}
+
+	[data-icon] {
+		font-size: 3.53846153846154em;  /* 46px / 13px */
+		text-transform: uppercase;
+	}
+
+	[data-icon]:after {
+		content: "\A";
+		white-space: pre;
+	}
+
+	/* @end MENU */
+
+
+	/* @group CONTENT */
+
+	#content {
+		float: left;
+		width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+	}
+
+	/* @end CONTENT */
+
+
+	/* @group SIDEBAR */
+
+	#sidebar {
+		float: left;
+		width: 30.701754385965%;  /* 2 Columns -  350px / 1140px */
+	}
+
+	/* @end SIDEBAR */
+
+
+	/* @group FOOTER */
+
+	#footer {
+		margin: 40px 1.315789473684% 15px 34.649122807017%;
+		width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
+	}
+
+	/* @end FOOTER */
+
+}  /* min-width: 620px */
+
+
+
+@media screen and (min-width: 700px) {
+
+	/* @group MENU */
+
+	#menu li {
+			font-size: .875em; /* 14px / 16px */
+		}
+	
+		[data-icon] {
+			font-size: 4em;  /* 56px / 14px */
+		}
+
+	/* @end MENU */
+
+}  /* min-width: 700px */
+
+
+
+@media screen and (min-width: 800px) {
+
+	/* @group MENU */
+
+	#menu li {
+		font-size: 1em; /* 16px */
+	}
+
+	[data-icon] {
+		font-size: 4.75em;  /* 76px / 16px */
+	}
+
+	/* @end MENU */
+
+}  /* min-width: 800px */
+
+
+
+/* Some Retina Graphics Adjustments - target 1.5 instead of 2 so they work for more devices than only Apple's */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 1.5dppx) {
+
+	body {
+		background-size: 125px 125px;
+	}
+
+}  /* min-device-pixel-ratio: 1.5 */
