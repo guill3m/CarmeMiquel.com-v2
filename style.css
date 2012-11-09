@@ -205,8 +205,8 @@ Gutter Width: 30px
 	% Gutter Width: 2.631578947368%  - 30px / 1140px
 	Apply Margin: 0 1.315789473684%  - 30px / 1140px / 2
 
-Font Size:   16px - 1em
-Line Height: 1.3em
+Font Size:   15px - .9375em (from 16px)
+Line Height: 21px - 1.4em (from 15px)
 
 Text Color: rgb(65,65,65)    -Dark Grey-
             rgb(195,195,195) -Light Grey-
@@ -529,7 +529,7 @@ h4 {
 	/* @group CONTENT */
 
 	#content {
-		float: left;
+		float: right;
 		width: 64.035087719298%;  /* 4 Columns -  730px / 1140px */
 	}
 
@@ -537,7 +537,8 @@ h4 {
 
 
 	/* @group SIDEBAR */
-
+	
+	#title,
 	#sidebar {
 		float: left;
 		width: 30.701754385965%;  /* 2 Columns -  350px / 1140px */
@@ -566,10 +567,10 @@ h4 {
 	#menu li {
 			font-size: .875em; /* 14px / 16px */
 		}
-	
-		[data-icon] {
-			font-size: 4em;  /* 56px / 14px */
-		}
+
+	[data-icon] {
+		font-size: 4em;  /* 56px / 14px */
+	}
 
 	/* @end MENU */
 
