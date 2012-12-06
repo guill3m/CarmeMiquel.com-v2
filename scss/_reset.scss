@@ -1,29 +1,58 @@
-/* Reset */
+/* Reset & Normalize */
 
 * {
 	box-sizing: border-box;
+	.ie7 & {
+		box-sizing: border-box;
+		behavior: url(http://www.carmemiquel.com/wp-content/themes/carmemiquel-v2/js/boxsizing.htc);
+	}
 }
 
-html, body, a, abbr, acronym, address, article, aside, audio, b, big, blockquote, caption, cite, code, dd, del, dfn, dialog, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, ul, var, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, input, textarea, output, ruby, section, summary, time, mark, audio, video {
 	border: 0;
-	font: {
-		family: inherit;
+	font: inherit {
 		size: 100%;
-		style: inherit;
-		weight: inherit;
 	}
 	margin: 0;
 	padding: 0;
 	vertical-align: baseline;
-	white-space: normal;
-}
-
-article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
 }
 
 a img {
 	border: 0;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+	display: block;
+}
+
+abbr[title], dfn[title] {
+	border-bottom:1px dotted;
+	cursor:help;
+}
+
+audio, canvas, video {
+	display: inline-block;
+	.ie7 & {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+b,
+strong {
+	font-weight: bold;
 }
 
 blockquote, q {
@@ -36,8 +65,54 @@ blockquote, q {
 	}
 }
 
-del, ins {
-	text-decoration: none;
+body {
+	line-height: 1;
+}
+
+button,
+input {
+	line-height: normal;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+	.ie7 & {
+		overflow: visible;
+	}
+}
+
+button[disabled],
+input[disabled] {
+	cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+code, kbd, pre, samp {
+	font: {
+		family: monospace;
+		size: 1em;
+	}
+}
+
+dfn {
+	font-style: italic;
+}
+
+legend {
+	white-space: normal;
+}
+
+[hidden] {
+	display: none;
 }
 
 hr {
@@ -46,33 +121,64 @@ hr {
 	padding: 0;
 }
 
-img {
-	max-width: 100%;
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 
-input {
-	margin: 0;
-	padding: 0;
+img {
+	max-width: 100%;
+	.ie7 & {
+		-ms-interpolation-mode: bicubic;
+	}
+}
+
+input, select {
+	vertical-align: middle;
+}
+
+.ie7 input[type="checkbox"],
+.ie7 input[type="radio"] {
+	height: 13px;
+	width: 13px;
+}
+
+.ie7 legend {
+	margin-left: -7px;
+}
+
+mark {
+	background: #ff0;
+	color: #000;
 }
 
 nav ul {
-	list-style-type: none;
-}
-
-ol, ul {
 	list-style: none;
 }
 
-sub, sup {
-	font-size: .5em;
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 
-sub {
-	vertical-align: sub;
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
 }
 
 sup {
-	vertical-align: super;
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+svg:not(:root) {
+	overflow: hidden;
 }
 
 table {
@@ -83,19 +189,14 @@ table {
 }
 
 textarea {
-	font: {
-		family: inherit;
-		size: 100%;
-		style: normal;
-		weight: normal;
-	}
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	white-space: normal;
+	overflow: auto;
+	vertical-align: top;
 }
 
 .cf {
+	.ie7 & {
+		zoom: 1;
+	}
 	&:before,
 	&:after {
 		content: "";

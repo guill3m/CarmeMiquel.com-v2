@@ -28,14 +28,8 @@ add_image_size('llibre--portada-small', 9999, 120);
 function css_enqueue() {
 	// Styles
 	wp_register_style('style', get_template_directory_uri() . "/css/style.css", false, '2.0a', 'all');
-	// IE Fix
-	wp_register_style('ie8fix', get_template_directory_uri() . "/css/ie8fix.css", array('style'), '2.0a', 'all');
-	wp_register_style('ie7fix', get_template_directory_uri() . "/css/ie7fix.css", array('ie8fix'), '2.0a', 'all');
-	// Add conditional comment to IE Fix styles
-	$GLOBALS['wp_styles']->add_data('ie8fix', 'conditional', 'lte IE 8');
-	$GLOBALS['wp_styles']->add_data('ie7fix', 'conditional', 'lte IE 7');
 	// Load styles
-	wp_enqueue_style(array('style', 'ie8fix', 'ie7fix'));
+	wp_enqueue_style('style');
 }
 
 add_action('wp_enqueue_scripts', 'css_enqueue', 11);
