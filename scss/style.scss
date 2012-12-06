@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/*!
+Theme Name: CarmeMiquel v2
+Theme URI: http:/carmemiquel.com/
+Author: Guillem Andreu
+Author URI: http://guillemandreu.com/
+Description: Theme per a la web de Carme Miquel.
+Version: 2.0a
+License: Private
+Tags: flexible, responsive, mobile first, 2 columns
+*/
+
+// Variables
+@import "variables";
+
+// Mixins
+@import "mixins";
+
+// Fonts
+@import "font-face";
+
+// Reset
+@import "reset";
+@import "wordpress";
+
+// Styles
+@import "base";
+@import "header";
+@import "menu";
+@import "content";
+@import "sidebar";
+@import "footer";
+
+// Media Queries
+@import "respond-mobile";
+@import "respond-tablet";
+@import "respond-desktop";
+@import "retina";

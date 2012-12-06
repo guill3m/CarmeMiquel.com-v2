@@ -1,0 +1,55 @@
+/* Sidebar */
+
+#sidebar {
+	margin: $gutter-mg;
+	width: $columns6;
+}
+
+h2,
+h4 {
+	font-family: $type-serif;
+}
+
+h2 {
+	font: {
+		size: 3em;  // 48px / 16px
+		weight: 700;
+	}
+	line-height: 1;
+	.autora & {
+		color: $color-autora;
+	}
+	.entrevistes & {
+		color: $color-entrevistes;
+	}
+	.llibres & {
+		color: $color-llibres;
+	}
+	.articles & {
+		color: $color-articles;
+	}
+	.videos & {
+		color: $color-videos;
+	}
+	.mes-sobre & {
+		color: $color-mes-sobre;
+	}
+}
+
+h3 {
+	font: {
+		size: 2.3125em;  // 37px / 16px
+		weight: 600;
+	}
+	line-height: 1.13513513513514;  // 42px / 37px
+}
+
+h4 {
+	color: $color-text-light;
+	font-size: 1.625em;  // 26px / 16px
+	line-height: 1.38461538461538;  // 36px / 26px
+}
+
+.sidebar-img {
+	max-width: 100%;
+}

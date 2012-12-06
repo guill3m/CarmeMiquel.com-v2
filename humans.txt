@@ -5,15 +5,17 @@
 
 /* TEAM */
 
-  Design & Development: Guillem Andreu
-    Site: http://guillemandreu.com
-    Contact: hola@guillemandreu.com
-    Twitter: @guill3m
-    Location: Valencia, Spain
+  Design & Development:
+    Guillem Andreu
+      Site: http://guillemandreu.com
+      Contact: hola@guillemandreu.com
+      Twitter: @guill3m
+      Location: Valencia, Spain
 
-  Content: Carme Miquel
-    Site: http://carmemiquel.com
-    Location: Valencia, Spain
+  Content:
+    Carme Miquel
+      Site: http://carmemiquel.com
+      Location: Valencia, Spain
 
 
 
@@ -28,14 +30,14 @@
 
 /* SITE */
 
-  Last update: 2012/09/02
+  Last update: 2012/12/06
   Language: Catalan
-  Standards: HTML5, CSS3
-  Style: Fluid / Responsive
+  Standards: HTML5, CSS
+  Style: Fluid / Responsive / Mobile First
   CMS: Wordpress
-  Components: jQuery, PrefixFree, html5shiv
+  Components: SCSS, jQuery, PrefixFree, html5shiv, respond.js, retina.js
   Fonts: Arvo, Open Sans
-  Software: Espresso, Photoshop, Illustrator, Glyphs, Smaller, Cyberduck, Dropbox, iTunes
+  Software: Sublime Text 2, Espresso, Photoshop, Illustrator, Glyphs, CodeKit, SourceTree, Transmit, Dropbox, iTunes
   Machines: Development: iMac, MacBook Pro Retina / Testing: iMac, MacBook Pro Retina, iPad2, iPhone4S, iPod Touch 2G, Dell Inspiron 6400
 
 
@@ -46,9 +48,6 @@
 ************************************************************************************************************************************************
 *****   Guillem Andreu   *****   Graphic & Web Design & Development   *****   http://guillemandreu.com   *****   hola@guillemandreu.com    *****
 ************************************************************************************************************************************************
-
-
-
 
 
                                                    :::-     `:::.                                                                               
@@ -77,5 +76,4 @@
                                          ohhhh/--/yhhhhy   /hhhh`    +hhhh`  -hhhhy/:+yhhhhh-   shhhy       :hhhhs/:::/oy/   -hhhhhssyhhhhhh-   
                                          `ohhhhhhhy/yhhh:  /hhhh`    :hhhh/   -yhhhhhhho+hhho   shhhy        -shhhhhhhhhho    :hhhhhhho-+hhhs   
                                            `-///:.   .-.   `----      .::-      .://:-`  `--    .----          `-:///:-.        -:::.    `--    
-
 

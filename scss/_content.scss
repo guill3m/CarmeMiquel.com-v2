@@ -1,0 +1,12 @@
+/* Content */
+
+#content {
+	margin: $gutter-mg;
+	width: $columns6;
+	p {
+		margin-top: 26px;
+		+ p {
+			margin-top: 1em;
+		}
+	}
+}

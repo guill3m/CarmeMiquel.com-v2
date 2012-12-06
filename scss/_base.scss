@@ -1,0 +1,52 @@
+/* Base */
+
+body {
+	background: url(../img/bg.jpg) repeat 0 0 #fff;
+	color: $color-text;
+	font: 400 100% $type-sans;  // 16px
+}
+
+#center {
+	margin: 0 auto;
+	max-width: 1140px;
+	width: 95%;
+}
+
+p {
+	line-height: 1.4;  // 21px / 15px
+	font-size: .9375em; // 15px / 16px
+}
+
+a {
+	color: $color-text;
+	text-decoration: none;
+	transition: all .3s ease-out;
+	.autora & {
+		color: $color-autora;
+	}
+	.entrevistes & {
+		color: $color-entrevistes;
+	}
+	.llibres & {
+		color: $color-llibres;
+	}
+	.articles & {
+		color: $color-articles;
+	}
+	.videos & {
+		color: $color-videos;
+	}
+	.mes-sobre & {
+		color: $color-mes-sobre;
+	}
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+i,
+em {
+	font-style: italic;
+}

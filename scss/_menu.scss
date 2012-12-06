@@ -1,0 +1,55 @@
+/* Menu */
+
+#menu {
+	li {
+		display: block;
+		font-size: .9375em; // 15px / 16px
+		margin: $gutter-mg;
+		text-transform: uppercase;
+		width: $columns6;
+	}
+	a {
+		color: $color-text;
+		display: block;
+		font-weight: 600;
+		text: {
+			align: center;
+			decoration: none;
+		}
+		width: 100%;
+	}
+	.autora a {
+		color: $color-autora;
+	}
+	.entrevistes a {
+		color: $color-entrevistes;
+	}
+	.llibres a {
+		color: $color-llibres;
+	}
+	.articles a {
+		color: $color-articles;
+	}
+	.videos a {
+		color: $color-videos;
+	}
+	.mes-sobre a {
+		color: $color-mes-sobre;
+	}
+}
+
+[data-icon] {
+	speak: none;
+	text-transform: lowercase;
+	&:before {
+		content: attr(data-icon);
+	}
+	&:after {
+		content: " ";
+	}
+}
+
+#submenu {
+	margin: $gutter-mg;
+	width: $columns6;
+}
