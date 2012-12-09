@@ -17,7 +17,7 @@ add_theme_support('automatic-feed-links');
 add_theme_support('menus');
 add_theme_support('post-thumbnails', 'llibres');
 add_image_size('llibre-portada', 250, 9999);
-add_image_size('llibre--portada-small', 9999, 120);
+add_image_size('llibre-portada-small', 9999, 120);
 
 
 
@@ -228,16 +228,20 @@ add_action('init', 'add_custom_taxanomies');
  * Admin menu order
  */
 
-function custom_menu_order($menu_ord) {
+function the_menu_order($menu_ord) {
 	if (!$menu_ord) return true;
 	return array(
 		'index.php', // Dashboard Link
-		'edit.php?post_type=articles',
+		'separator1',
+		'edit.php?post_type=articles', // Articles
+		'edit.php?post_type=llibres',  // Llibres
+		'edit.php?post_type=page',     // Pages
+		'edit.php',                    // Posts
 	);
 }
 
-add_filter('custom_menu_order', 'custom_menu_order');
-add_filter('menu_order', 'custom_menu_order');
+add_filter('custom_menu_order', 'the_menu_order');
+add_filter('menu_order', 'the_menu_order');
 
 
 
@@ -293,7 +297,24 @@ add_action('right_now_content_table_end', 'add_custom_post_type_and_taxonomy_to_
 
 
 /*
-* Columns for the Custom Post Type
+ * Thumbnail with his own column on ‘llibres’ custom post type
+ */
+
+function llibres_column_thumb($column) {
+	global $post;
+	switch ($column) {
+		case 'thumbnail':
+			the_post_thumbnail();
+		break;
+	}
+}
+
+add_action('manage_llibres_posts_custom_column', 'llibres_column_thumb');
+
+
+
+/*
+* Columns for the Custom Post Types
 */
 
 function articles_columns($columns) {
@@ -306,7 +327,19 @@ function articles_columns($columns) {
 	return $columns;
 }
 
+function llibres_columns($columns) {
+	$columns = array(
+		'cb' => '<input type="checkbox" />',
+		'title' => 'Llibre',
+		'thumbnail' => 'Portada',
+		'public_llibres' => 'Public',
+		'date' => 'Data'
+	);
+	return $columns;
+}
+
 add_filter('manage_edit-articles_columns', 'articles_columns');
+add_filter('manage_edit-llibres_columns', 'llibres_columns');
 
 
 
@@ -339,11 +372,13 @@ function sortable_columns() {
 	return array(
 		'title' => 'title',
 		'cat_articles' => 'cat_articles',
+		'public_llibres' => 'public_llibres',
 		'date' => 'date'
 	);
 }
 
 add_filter('manage_edit-articles_sortable_columns', 'sortable_columns');
+add_filter('manage_edit-llibres_sortable_columns', 'sortable_columns');
 
 
 
@@ -486,23 +521,23 @@ function register_required_plugins() {
 		'is_automatic' => false,
 		'message' => '',
 		'strings' => array(
-			'page_title' => 'Instalar plugins requeridos',
-			'menu_title' => 'Instalar Plugins',
-			'installing' => 'Instalando plugin Plugin: %1s.',
-			'oops' => 'Something went wrong with the plugin API.',
-			'notice_can_install_required' => _n_noop('Este tema requiere el plugin: %1$s.', 'Este tema requiere los plugins: %1$s.'),
-			'notice_can_install_recommended' => _n_noop('Este tema recomienda el plugin: %1$s.', 'Este tema recomienda los plugins: %1$s.'),
-			'notice_cannot_install' => _n_noop('No tienes los permisos necesarios para instalar el plugin %1s. Ponte en contacto con el administrador para solucionarlo.', 'No tienes los permisos necesarios para instalar los plugins %1s. Ponte en contacto con el administrador para solucionarlo.'),
-			'notice_can_activate_required' => _n_noop('El siguiente plugin requerido está desactivado: %1$s.', 'Los siguientes plugins requeridos están desactivados: %1$s.'),
-			'notice_can_activate_recommended' => _n_noop('El siguiente plugin recomendado está desactivado: %1$s.', 'Los siguientes plugins recomendados están desactivados: %1$s.'),
-			'notice_cannot_activate' => _n_noop('No tienes los permisos necesarios para activar el plugin %1s, Ponte en contacto con el administrador para solucionarlo.', 'No tienes los permisos necesarios para activar los plugins %1s. Ponte en contacto con el administrador para solucionarlo.'),
-			'notice_ask_to_update' => _n_noop('El siguiente plugin necesita ser actualizado para asegurar su correcto funcionamiento con este tema: %1$s.', 'Los siguientes plugins necesitan ser actualizados para asegurar su correcto funcionamiento con este tema: %1$s.'),
-			'notice_cannot_update' => _n_noop('No tienes los permisos necesarios para actualizar el plugin %1s, Ponte en contacto con el administrador para solucionarlo.', 'No tienes los permisos necesarios para actualizar los plugins %1s. Ponte en contacto con el administrador para solucionarlo.'),
-			'install_link' => _n_noop('Instala el plugin', 'Instala los plugins'),
-			'activate_link' => _n_noop('Activa el plugin instalado', 'Activa los plugins instalados'),
-			'return' => 'Volver al instalador de plugins requeridos',
-			'plugin_activated' => 'Plugin activado correctamente. %1$s',
-			'complete' => 'Todos los plugins se han instalado y activado correctamente. %1$s',
+			'page_title' => 'Instal·lar plugins necessàris',
+			'menu_title' => 'Instal·lar Plugins',
+			'installing' => 'Instal·lant plugin: %1s.',
+			'oops' => 'Alguna cosa no ha anat be amb la API de plugins.',
+			'notice_can_install_required' => _n_noop('Aquest tema necessita el plugin: %1$s.', 'Aquest tema necessita els plugins: %1$s.'),
+			'notice_can_install_recommended' => _n_noop('Aquest tema recomana el plugin: %1$s.', 'Aquest tema recomana els plugins: %1$s.'),
+			'notice_cannot_install' => _n_noop('No tens els permisos necessàris per a instal·lar el plugin %1s. Contacta amb l’administrador per a sol·lucionar-ho.', 'No tens els permisos necessàris per a instal·lar els plugins %1s. Contacta amb l’administrador per a sol·lucionar-ho.'),
+			'notice_can_activate_required' => _n_noop('El següent plugin necessàri està desactivat: %1$s.', 'Els següents plugins necessàris estàn desactivats: %1$s.'),
+			'notice_can_activate_recommended' => _n_noop('El següent plugin recomanat està desactivat: %1$s.', 'Els següents plugins recomanats estàn desactivats: %1$s.'),
+			'notice_cannot_activate' => _n_noop('No tens els permisos necessàris per a instal·lar el plugin %1s. Contacta amb l’administrador per a sol·lucionar-ho.', 'No tens els permisos necessàris per a instal·lar els plugins %1s. Contacta amb l’administrador per a sol·lucionar-ho.'),
+			'notice_ask_to_update' => _n_noop('El següent plugin necesita ser actualizat per a asegurar el seu correcte funcionament amb el tema: %1$s.', 'Els següents plugin necesiten ser actualizats per a asegurar el seu correcte funcionament amb el tema: %1$s.'),
+			'notice_cannot_update' => _n_noop('No tens els permisos necessàris per a actualitzar el plugin %1s. Contacta amb l’administrador per a sol·lucionar-ho.', 'No tens els permisos necessàris per a actualitzar els plugins %1s. Contacta amb l’administrador per a sol·lucionar-ho.'),
+			'install_link' => _n_noop('Instal·la el plugin', 'Instal·la els plugins'),
+			'activate_link' => _n_noop('Activa el plugin instal·lat', 'Activa los plugins instal·lats'),
+			'return' => 'Tornar a l’instal·lador de plugins necessàris',
+			'plugin_activated' => 'Plugin activat correctament. %1$s',
+			'complete' => 'Tots els plugins s’han instal·lat i activat correctament. %1$s',
 			'nag_type' => 'updated'
 		)
 	);

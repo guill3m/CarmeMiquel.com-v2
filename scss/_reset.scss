@@ -127,6 +127,7 @@ html {
 }
 
 img {
+	height: 100%;
 	max-width: 100%;
 	.ie7 & {
 		-ms-interpolation-mode: bicubic;

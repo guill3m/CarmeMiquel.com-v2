@@ -30,17 +30,66 @@
 
 /* SITE */
 
-  Last update: 2012/12/06
-  Language: Catalan
-  Standards: HTML5, CSS
-  Style: Fluid / Responsive / Mobile First
-  CMS: Wordpress
-  Components: SCSS, jQuery, PrefixFree, html5shiv, respond.js, retina.js
-  Fonts: Arvo, Open Sans
-  Software: Sublime Text 2, Espresso, Photoshop, Illustrator, Glyphs, CodeKit, SourceTree, Transmit, Dropbox, iTunes
-  Machines: Development: iMac, MacBook Pro Retina / Testing: iMac, MacBook Pro Retina, iPad2, iPhone4S, iPod Touch 2G, Dell Inspiron 6400
+  Last update:
+    2012/12/09
+
+  Language:
+    Catalan
+
+  Standards:
+    CSS
+    HTML5
+
+  Style:
+    Fluid
+    Mobile First
+    Responsive
+
+  CMS:
+    Wordpress
+
+  Components:
+    html5shiv
+    jQuery
+    PrefixFree
+    respond.js
+    retina.js
+    SCSS
+
+  Fonts:
+    Arvo
+    Open Sans
+
+  Source Code:
+    https://github.com/guill3m/CarmeMiquel.com-v2.0
 
 
+
+/* DEVELOPMENT */
+
+  Software:
+    Sublime Text 2
+    Espresso
+    CodeKit
+    Photoshop
+    Illustrator
+    Glyphs
+    SourceTree
+    Transmit
+    Dropbox
+    iTunes
+
+  Hardware:
+    Development:
+      iMac
+      MacBook Pro Retina
+    Testing:
+      iMac
+      MacBook Pro Retina
+      iPad 2
+      iPhone 4S
+      iPod Touch 2G
+      Dell Inspiron 6400
 
 
 
@@ -76,4 +125,3 @@
                                          ohhhh/--/yhhhhy   /hhhh`    +hhhh`  -hhhhy/:+yhhhhh-   shhhy       :hhhhs/:::/oy/   -hhhhhssyhhhhhh-   
                                          `ohhhhhhhy/yhhh:  /hhhh`    :hhhh/   -yhhhhhhho+hhho   shhhy        -shhhhhhhhhho    :hhhhhhho-+hhhs   
                                            `-///:.   .-.   `----      .::-      .://:-`  `--    .----          `-:///:-.        -:::.    `--    
-

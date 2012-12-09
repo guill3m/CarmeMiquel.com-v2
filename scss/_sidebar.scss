@@ -1,8 +1,17 @@
 /* Sidebar */
 
-#sidebar {
+.title,
+.sidebar {
 	margin: $gutter-mg;
 	width: $columns6;
+}
+
+.title {
+	margin-bottom: 15px;
+}
+
+.sidebar {
+	margin-top: 15px;
 }
 
 h2,

@@ -39,6 +39,10 @@ a {
 	.mes-sobre & {
 		color: $color-mes-sobre;
 	}
+	&:hover,
+	&:focus {
+		color: #000;
+	}
 }
 
 b,

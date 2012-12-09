@@ -1,6 +1,6 @@
 /* Respond Tablet */
 
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 645px) {
 
 	/* Menu */
 
@@ -16,7 +16,6 @@
 			display: block;
 			opacity: .4;
 		}
-
 		&:hover .current-menu-item a,
 		&:focus .current-menu-item a {
 			opacity: .7;
@@ -42,16 +41,16 @@
 
 	/* Content */
 
-	#content {
+	.content {
 		float: right;
 		width: $columns4;
 	}
 
 
 	/* Sidebar */
-	
-	#title,
-	#sidebar {
+
+	.title,
+	.sidebar {
 		float: left;
 		width: $columns2;
 	}
@@ -64,7 +63,7 @@
 		width: $columns4;
 	}
 
-} // min-width: 620px
+} // min-width: 645px
 
 
 
