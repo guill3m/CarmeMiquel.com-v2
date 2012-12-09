@@ -26,10 +26,10 @@
 
 <?php // Generate the appropiate class for the body tag
 if (is_page()) {
-	if (the_field('cm_section') == 'Col·loqui') {
+	if (get_field('cm_section') == 'Col·loqui') {
 		$body_class = 'entrevistes';
 	} else {
-		$body_class = clean_for_url(the_field('cm_section'), false);
+		$body_class = clean_for_url(get_field('cm_section'), false);
 	}
 } elseif (is_singular('articles')) {
 	$body_class = 'articles';
