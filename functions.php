@@ -456,8 +456,8 @@ function clean_for_url($toClean, $echo = true) {
 
 	// Replace characters acording to the table in $characters
 	$toClean = strtr($toClean, $characters);
-	// Replace ampersand (&) with ‘i’ (this site's language is catalan, that’s why I’m not using ‘and’)
-	$toClean = str_replace('&', '-y-', $toClean);
+	// Replace ampersand (&) with ‘i’ (this site’s language is catalan, that’s why I’m using ‘i’ instead of ‘and’)
+	$toClean = str_replace('&', '-i-', $toClean);
 	// Remove any ilegal characters remaining
 	$toClean = trim(preg_replace('/[^\w\d_ -]/si', '', $toClean));
 	// Replace spaces with dash

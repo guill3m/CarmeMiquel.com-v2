@@ -51,9 +51,11 @@ if (is_page()) {
 					--><li class="articles"><a href="http://carmemiquel.com/articles/"><span data-icon="d"></span>Articles</a></li><!--
 					--><li class="videos"><a href="http://carmemiquel.com/videos/"><span data-icon="e"></span>Vídeos</a></li><!--
 					--><li class="mes-sobre"><a href="http://carmemiquel.com/mes-sobre/"><span data-icon="f"></span>Més sobre…</a></li>
-				</ul><!-- end #menu -->
+				</ul><!-- END #menu -->
 				<div id="submenu" class="cf">
-					<!-- submenu content called with AJAX -->
-				</div><!-- en #submenu -->
+					<!--
+					Submenu Content :: Called with AJAX
+					-->
+				</div><!-- END #submenu -->
 			</nav>
-		</header><!-- end #header -->
+		</header><!-- END #header -->

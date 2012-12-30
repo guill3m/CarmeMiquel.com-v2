@@ -21,27 +21,9 @@ a {
 	color: $color-text;
 	text-decoration: none;
 	transition: all .3s ease-out;
-	.autora & {
-		color: $color-autora;
-	}
-	.entrevistes & {
-		color: $color-entrevistes;
-	}
-	.llibres & {
-		color: $color-llibres;
-	}
-	.articles & {
-		color: $color-articles;
-	}
-	.videos & {
-		color: $color-videos;
-	}
-	.mes-sobre & {
-		color: $color-mes-sobre;
-	}
 	&:hover,
 	&:focus {
-		color: #000;
+		color: #000 !important;
 	}
 }
 

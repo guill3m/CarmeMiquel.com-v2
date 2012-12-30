@@ -1,0 +1,65 @@
+/* Colors */
+
+a,
+.title {
+	.autora & {
+		color: $color-autora;
+	}
+	.entrevistes & {
+		color: $color-entrevistes;
+	}
+	.llibres & {
+		color: $color-llibres;
+	}
+	.articles & {
+		color: $color-articles;
+	}
+	.videos & {
+		color: $color-videos;
+	}
+	.mes-sobre & {
+		color: $color-mes-sobre;
+	}
+}
+
+#menu {
+	.autora a {
+		color: $color-autora;
+	}
+	.entrevistes a {
+		color: $color-entrevistes;
+	}
+	.llibres a {
+		color: $color-llibres;
+	}
+	.articles a {
+		color: $color-articles;
+	}
+	.videos a {
+		color: $color-videos;
+	}
+	.mes-sobre a {
+		color: $color-mes-sobre;
+	}
+}
+
+::selection {
+	.autora & {
+		background-color: $color-autora;
+	}
+	.entrevistes & {
+		background-color: $color-entrevistes;
+	}
+	.llibres & {
+		background-color: $color-llibres;
+	}
+	.articles & {
+		background-color: $color-articles;
+	}
+	.videos & {
+		background-color: $color-videos;
+	}
+	.mes-sobre & {
+		background-color: $color-mes-sobre;
+	}
+}

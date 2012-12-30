@@ -1,51 +1,29 @@
 /* Sidebar */
 
-.title,
+.title-block,
 .sidebar {
 	margin: $gutter-mg;
 	width: $columns6;
 }
 
-.title {
+.title-block {
 	margin-bottom: 15px;
 }
 
-.sidebar {
-	margin-top: 15px;
-}
-
-h2,
-h4 {
+.title,
+.subsubtitle {
 	font-family: $type-serif;
 }
 
-h2 {
+.title {
 	font: {
 		size: 3em;  // 48px / 16px
 		weight: 700;
 	}
 	line-height: 1;
-	.autora & {
-		color: $color-autora;
-	}
-	.entrevistes & {
-		color: $color-entrevistes;
-	}
-	.llibres & {
-		color: $color-llibres;
-	}
-	.articles & {
-		color: $color-articles;
-	}
-	.videos & {
-		color: $color-videos;
-	}
-	.mes-sobre & {
-		color: $color-mes-sobre;
-	}
 }
 
-h3 {
+.subtitle {
 	font: {
 		size: 2.3125em;  // 37px / 16px
 		weight: 600;
@@ -53,10 +31,14 @@ h3 {
 	line-height: 1.13513513513514;  // 42px / 37px
 }
 
-h4 {
+.subsubtitle {
 	color: $color-text-light;
 	font-size: 1.625em;  // 26px / 16px
 	line-height: 1.38461538461538;  // 36px / 26px
+}
+
+.sidebar {
+	margin-top: 15px;
 }
 
 .sidebar-img {
