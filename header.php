@@ -24,33 +24,20 @@
 
 </head>
 
-<?php // Generate the appropiate class for the body tag
-if (is_page()) {
-	if (get_field('cm_section') == 'Col·loqui') {
-		$body_class = 'entrevistes';
-	} else {
-		$body_class = clean_for_url(get_field('cm_section'), false);
-	}
-} elseif (is_singular('articles')) {
-	$body_class = 'articles';
-} elseif (is_singular('llibres')) {
-	$body_class = 'llibres';
-} ?>
-
-<body class="<?php echo $body_class; ?>">
+<body class="<?php the_body_class(); ?>">
 
 	<div id="center">
 
 		<header id="header">
-			<h1><a href="http://carmemiquel.com" title="Carme Miquel"><img src="<?php bloginfo('template_directory') ?>/img/h1.png" alt="Carme Miquel" title="Carme Miquel" /></a></h1>
+			<a id="site-title" href="<?php bloginfo('url') ?>" title="Carme Miquel"><img src="<?php bloginfo('template_directory') ?>/img/carme-miquel.png" alt="Carme Miquel" title="Carme Miquel" /></a>
 			<nav>
 				<ul id="menu"><!--
-					--><li class="autora current-menu-item"><a href="http://carmemiquel.com/autora/"><span data-icon="a"></span>Autora</a></li><!--
-					--><li class="entrevistes"><a href="http://carmemiquel.com/entrevistes/"><span data-icon="b"></span>Entrevistes</a></li><!--
-					--><li class="llibres"><a href="http://carmemiquel.com/llibres/"><span data-icon="c"></span>Llibres</a></li><!--
-					--><li class="articles"><a href="http://carmemiquel.com/articles/"><span data-icon="d"></span>Articles</a></li><!--
-					--><li class="videos"><a href="http://carmemiquel.com/videos/"><span data-icon="e"></span>Vídeos</a></li><!--
-					--><li class="mes-sobre"><a href="http://carmemiquel.com/mes-sobre/"><span data-icon="f"></span>Més sobre…</a></li>
+					--><li class="<?php the_menu_class('lautora'); ?>"><a href="<?php bloginfo('url') ?>/autora/"><span data-icon="a"></span>Autora</a></li><!--
+					--><li class="<?php the_menu_class('entrevistes'); ?>"><a href="<?php bloginfo('url') ?>/entrevistes/"><span data-icon="b"></span>Entrevistes</a></li><!--
+					--><li class="<?php the_menu_class('llibres'); ?>"><a href="<?php bloginfo('url') ?>/llibres/"><span data-icon="c"></span>Llibres</a></li><!--
+					--><li class="<?php the_menu_class('articles'); ?>"><a href="<?php bloginfo('url') ?>/articles/"><span data-icon="d"></span>Articles</a></li><!--
+					--><li class="<?php the_menu_class('videos'); ?>"><a href="<?php bloginfo('url') ?>/videos/"><span data-icon="e"></span>Vídeos</a></li><!--
+					--><li class="<?php the_menu_class('mes-sobre'); ?>"><a href="<?php bloginfo('url') ?>/mes-sobre/"><span data-icon="f"></span>Més sobre…</a></li>
 				</ul><!-- END #menu -->
 				<div id="submenu" class="cf">
 					<!--

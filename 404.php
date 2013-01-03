@@ -8,9 +8,9 @@ get_header();
 ?>
 
 		<article class="cf">
-			<hgroup class="title">
-				<h2>Error 404</h2>
-				<h3>Pàgina no trobada</h3>
+			<hgroup class="title-block">
+				<h2 class="title">Error 404</h2>
+				<h3 class="subtitle">Pàgina no trobada</h3>
 			</hgroup><!-- END .title -->
 			<div class="content">
 				<p>Ho sent molt, però no trobe la pàgina que estàs buscant.</p>

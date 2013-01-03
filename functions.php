@@ -28,7 +28,7 @@ add_image_size('portada-llibre-small', 9999, 120);
 
 function css_enqueue() {
 	// Styles
-	wp_register_style('style', get_template_directory_uri() . "/css/style.css", false, '2.0a', 'all');
+	wp_register_style('style', get_template_directory_uri() . "/style.css", false, '2.0a', 'all');
 	// Load styles
 	wp_enqueue_style('style');
 }
@@ -73,13 +73,46 @@ add_action('wp_enqueue_scripts', 'js_enqueue', 13);
  * JS condicional IE, after all the other scripts
  */
 
-function ie_conditional_js_enqueue () {
+function ie_conditional_js_enqueue() {
 	echo '<!--[if lt IE 9]>';
 	echo '<script type="text/javascript" src="' . get_template_directory_uri() . '/js/respond.js?ver=1.1.0"></script>';
 	echo '<![endif]-->';
 }
 
 add_action('wp_head', 'ie_conditional_js_enqueue', 14);
+
+
+/*
+ * The header and menu classes
+ */
+
+function the_body_class($echo) {
+	if (is_page()) {
+		if (get_field('cm_section', get_the_ID()) == 'Col·loqui') {
+			$body_class = 'entrevistes';
+		} else {
+			$body_class = clean_for_url(get_field('cm_section', get_the_ID()), false);
+		}
+	} elseif (is_singular('articles') || is_tax('articles')) {
+		$body_class = 'articles';
+	} elseif (is_singular('llibres') || is_tax('llibres')) {
+		$body_class = 'llibres';
+	}
+	if ($echo = true) {
+		echo $body_class;
+	} else {
+		return $body_class;
+	}
+}
+
+function the_menu_class($the_class) {
+	$body_class = the_body_class(false);
+	if ($body_class != $the_class) {
+		echo $the_class;
+	} else {
+		echo $the_class.' active';
+	}
+}
 
 
 

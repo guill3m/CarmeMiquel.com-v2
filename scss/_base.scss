@@ -3,7 +3,7 @@
 body {
 	background: url(../img/bg.jpg) repeat 0 0 #fff;
 	color: $color-text;
-	font: 400 100% $type-sans;  // 16px
+	font: 400 100% $type-sans; // 16px
 }
 
 #center {
@@ -13,8 +13,8 @@ body {
 }
 
 p {
-	line-height: 1.4;  // 21px / 15px
-	font-size: .9375em; // 15px / 16px
+	line-height: 1.4; // 21px / 15px
+	font-size: .9375em;  // 15px / 16px
 }
 
 a {
@@ -23,7 +23,7 @@ a {
 	transition: all .3s ease-out;
 	&:hover,
 	&:focus {
-		color: #000 !important;
+		color: #000;
 	}
 }
 

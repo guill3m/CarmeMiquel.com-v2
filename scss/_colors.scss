@@ -2,7 +2,7 @@
 
 a,
 .title {
-	.autora & {
+	.lautora & {
 		color: $color-autora;
 	}
 	.entrevistes & {
@@ -22,8 +22,14 @@ a,
 	}
 }
 
+a:hover,
+a:focus {
+	color: #000;
+}
+
+
 #menu {
-	.autora a {
+	.lautora a {
 		color: $color-autora;
 	}
 	.entrevistes a {
@@ -44,7 +50,7 @@ a,
 }
 
 ::selection {
-	.autora & {
+	.lautora & {
 		background-color: $color-autora;
 	}
 	.entrevistes & {

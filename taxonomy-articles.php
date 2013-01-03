@@ -14,9 +14,9 @@
 		<article id="post-<?php the_ID(); ?>" class="post cf">
 
 			<hgroup class="title-block">
-				<h2 clas="title"><?php the_field('cm_section'); ?>PUTA</h2>
-				<h3 class="subtitle"><?php the_title(); ?></h3>
-				<h4 class="subsubtitle"><?php the_time('j F, Y'); ?></h4>
+				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<h3 class="subtitle"><?php the_time('j F, Y'); ?></h3>
+				<h4 class="subsubtitle"><?php the_field('cm_publicacio'); ?></h4>
 			</hgroup><!-- END .title -->
 
 			<div class="content">
