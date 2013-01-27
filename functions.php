@@ -62,7 +62,7 @@ function js_enqueue() {
 	// Footer
 	wp_register_script('retina', get_template_directory_uri() . "/js/retina.min.js", false, '0.0.2', true);
 	// Load scripts
-	wp_enqueue_script(array('html5shiv', 'prefix-free', 'retina'));
+	wp_enqueue_script(array('html5shiv', 'retina'));
 }
 
 add_action('wp_enqueue_scripts', 'js_enqueue', 13);
@@ -98,15 +98,11 @@ function the_body_class($echo) {
 	} elseif (is_singular('llibres') || is_tax('llibres')) {
 		$body_class = 'llibres';
 	}
-	if ($echo = true) {
-		echo $body_class;
-	} else {
-		return $body_class;
-	}
+	return $body_class;
 }
 
 function the_menu_class($the_class) {
-	$body_class = the_body_class(false);
+	$body_class = the_body_class();
 	if ($body_class != $the_class) {
 		echo $the_class;
 	} else {
@@ -528,20 +524,6 @@ function register_required_plugins() {
 			'version' => '3.5',
 		),
 		// Recomended
-		array(
-			'name' => 'Jetpack',
-			'slug' => 'jetpack',
-			'required' => false,
-			'force_activation' => false,
-			'force_deactivation' => false,
-		),
-		array(
-			'name' => 'W3 Total Cache',
-			'slug' => 'w3-total-cache',
-			'required' => false,
-			'force_activation' => false,
-			'force_deactivation' => false,
-		),
 		array(
 			'name' => 'Wordpress SEO',
 			'slug' => 'wordpress-seo',

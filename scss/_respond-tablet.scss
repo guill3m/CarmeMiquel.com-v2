@@ -16,13 +16,13 @@
 			display: block;
 			opacity: .4;
 		}
-		&:hover .current-menu-item a,
-		&:focus .current-menu-item a {
+		&:hover .active a,
+		&:focus .active a {
 			opacity: .7;
 		}
-		.current-menu-item a,
-		.current-menu-item a:hover,
-		.current-menu-item a:focus,
+		.active a,
+		.active a:hover,
+		.active a:focus,
 		a:hover,
 		a:focus {
 			opacity: 1;
