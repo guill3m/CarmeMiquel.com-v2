@@ -499,63 +499,6 @@ function clean_for_url($toClean, $echo = true) {
 }
 
 
-/*
- * Required and recomended plugins
- */
-
-require_once dirname(__FILE__) . '/plugin/class-tgm-plugin-activation.php';
-
-function register_required_plugins() {
-	$plugins = array(
-		// Required
-		array(
-			'name' => 'Advanced Custom Fields',
-			'slug' => 'advanced-custom-fields',
-			'required' => true,
-			'force_activation' => true,
-			'force_deactivation' => false,
-			'version' => '3.5',
-		),
-		// Recomended
-		array(
-			'name' => 'Wordpress SEO',
-			'slug' => 'wordpress-seo',
-			'required' => false,
-			'force_activation' => false,
-			'force_deactivation' => false,
-		),
-	);
-	$config = array(
-		'has_notices' => true,
-		'is_automatic' => false,
-		'message' => '',
-		'strings' => array(
-			'page_title' => 'Instal·lar plugins necessàris',
-			'menu_title' => 'Instal·lar Plugins',
-			'installing' => 'Instal·lant plugin: %1s.',
-			'oops' => 'Alguna cosa no ha anat be amb la API de plugins.',
-			'notice_can_install_required' => _n_noop('Aquest tema necessita el plugin: %1$s.', 'Aquest tema necessita els plugins: %1$s.'),
-			'notice_can_install_recommended' => _n_noop('Aquest tema recomana el plugin: %1$s.', 'Aquest tema recomana els plugins: %1$s.'),
-			'notice_cannot_install' => _n_noop('No tens els permisos necessàris per a instal·lar el plugin %1s. Contacta amb l’administrador per a sol·lucionar-ho.', 'No tens els permisos necessàris per a instal·lar els plugins %1s. Contacta amb l’administrador per a sol·lucionar-ho.'),
-			'notice_can_activate_required' => _n_noop('El següent plugin necessàri està desactivat: %1$s.', 'Els següents plugins necessàris estàn desactivats: %1$s.'),
-			'notice_can_activate_recommended' => _n_noop('El següent plugin recomanat està desactivat: %1$s.', 'Els següents plugins recomanats estàn desactivats: %1$s.'),
-			'notice_cannot_activate' => _n_noop('No tens els permisos necessàris per a instal·lar el plugin %1s. Contacta amb l’administrador per a sol·lucionar-ho.', 'No tens els permisos necessàris per a instal·lar els plugins %1s. Contacta amb l’administrador per a sol·lucionar-ho.'),
-			'notice_ask_to_update' => _n_noop('El següent plugin necesita ser actualizat per a asegurar el seu correcte funcionament amb el tema: %1$s.', 'Els següents plugin necesiten ser actualizats per a asegurar el seu correcte funcionament amb el tema: %1$s.'),
-			'notice_cannot_update' => _n_noop('No tens els permisos necessàris per a actualitzar el plugin %1s. Contacta amb l’administrador per a sol·lucionar-ho.', 'No tens els permisos necessàris per a actualitzar els plugins %1s. Contacta amb l’administrador per a sol·lucionar-ho.'),
-			'install_link' => _n_noop('Instal·la el plugin', 'Instal·la els plugins'),
-			'activate_link' => _n_noop('Activa el plugin instal·lat', 'Activa los plugins instal·lats'),
-			'return' => 'Tornar a l’instal·lador de plugins necessàris',
-			'plugin_activated' => 'Plugin activat correctament. %1$s',
-			'complete' => 'Tots els plugins s’han instal·lat i activat correctament. %1$s',
-			'nag_type' => 'updated'
-		)
-	);
-	tgmpa($plugins, $config);
-}
-
-add_action('tgmpa_register', 'register_required_plugins');
-
-
 
 /*
  * Modify Wordpress’ visual editor (remove icons and reorganize)
