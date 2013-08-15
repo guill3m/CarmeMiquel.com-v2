@@ -24,7 +24,7 @@
 
 </head>
 
-<body class="<?php echo the_body_class(); ?>">
+<body class="<?php the_body_class(); ?>">
 
 	<div id="center">
 

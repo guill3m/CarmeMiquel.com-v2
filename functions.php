@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * @package WordPress
  * @subpackage CarmeMiquel.com v2
@@ -43,7 +43,7 @@ add_action('wp_enqueue_scripts', 'css_enqueue', 11);
 
 function jquery_enqueue() {
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js", false, null, true);
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null, true);
 	wp_enqueue_script('jquery');
 }
 
@@ -58,11 +58,12 @@ if (!is_admin()) add_action('wp_enqueue_scripts', 'jquery_enqueue', 12);
 function js_enqueue() {
 	// Head
 	wp_register_script('html5shiv', get_template_directory_uri() . "/js/html5shiv.min.js", false, '3.6.2pre', false);
+	wp_register_script('respond', get_template_directory_uri() . "/js/respond.js", false, '1.1.0', false);
 	wp_register_script('prefix-free', get_template_directory_uri() . "/js/prefixfree.min.js", false, '1.0.7', false);
 	// Footer
 	wp_register_script('retina', get_template_directory_uri() . "/js/retina.min.js", false, '0.0.2', true);
 	// Load scripts
-	wp_enqueue_script(array('html5shiv', 'retina'));
+	wp_enqueue_script(array('html5shiv', 'respond', 'retina'));
 }
 
 add_action('wp_enqueue_scripts', 'js_enqueue', 13);
@@ -70,23 +71,10 @@ add_action('wp_enqueue_scripts', 'js_enqueue', 13);
 
 
 /*
- * JS condicional IE, after all the other scripts
- */
-
-function ie_conditional_js_enqueue() {
-	echo '<!--[if lt IE 9]>';
-	echo '<script type="text/javascript" src="' . get_template_directory_uri() . '/js/respond.js?ver=1.1.0"></script>';
-	echo '<![endif]-->';
-}
-
-add_action('wp_head', 'ie_conditional_js_enqueue', 14);
-
-
-/*
  * The header and menu classes
  */
 
-function the_body_class($echo) {
+function the_body_class($echo = true) {
 	if (is_page()) {
 		if (get_field('cm_section', get_the_ID()) == 'Col·loqui') {
 			$body_class = 'entrevistes';
@@ -98,11 +86,16 @@ function the_body_class($echo) {
 	} elseif (is_singular('llibres') || is_tax('llibres')) {
 		$body_class = 'llibres';
 	}
-	return $body_class;
+	// The result
+	if ($echo == true) {
+		echo $body_class;
+	} else {
+		return $body_class;
+	}
 }
 
 function the_menu_class($the_class) {
-	$body_class = the_body_class();
+	$body_class = the_body_class(false);
 	if ($body_class != $the_class) {
 		echo $the_class;
 	} else {
@@ -209,7 +202,7 @@ function add_custom_taxanomies() {
 			'all_items' => __('Tots els camps'),
 			'parent_item' => __('Camp pare'),
 			'parent_item_colon' => __('Camp pare:'),
-			'edit_item' => __('Editar camp'), 
+			'edit_item' => __('Editar camp'),
 			'update_item' => __('Actualitzar camp'),
 			'add_new_item' => __('Afegir nou camp'),
 			'new_item_name' => __('Nou nom de camp'),
@@ -233,7 +226,7 @@ function add_custom_taxanomies() {
 			'all_items' => __('Tots els publics'),
 			'parent_item' => __('Public pare'),
 			'parent_item_colon' => __('Public pare:'),
-			'edit_item' => __('Editar public'), 
+			'edit_item' => __('Editar public'),
 			'update_item' => __('Actualitzar public'),
 			'add_new_item' => __('Afegir nou public'),
 			'new_item_name' => __('Nou nom de public'),
@@ -581,7 +574,7 @@ function base_extended_editor_mce_buttons($buttons) {
 }
 
 add_filter('mce_buttons', 'base_extended_editor_mce_buttons', 0);
- 
+
 // TinyMCE: Second line toolbar customizations
 function base_extended_editor_mce_buttons_2($buttons) {
 	// The settings are returned in this array. Customize to suite your needs. An empty array is used here because I remove the second row of icons.
