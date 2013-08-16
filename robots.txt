@@ -1,2 +1,11 @@
-User-Agent: *
-Disallow: /wp-content/plugins/
+User-agent: *
+
+Disallow: /wp-content/cache
+Disallow: /wp-content/plugins
+Disallow: /wp-content/upgrade
+Disallow: /wp-admin
+Disallow: /wp-includes
+
+Allow: /
+
+Sitemap: http://www.carmemiquel.com/sitemap_index.xml

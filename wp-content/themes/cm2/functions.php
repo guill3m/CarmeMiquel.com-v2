@@ -7,6 +7,15 @@
 
 
 /*
+ * Theme version number
+ */
+
+$theme = wp_get_theme();
+$theme_version_number = $theme['Version'];
+
+
+
+/*
  * Add theme support:
  * RSS links on the head
  * Menus
@@ -26,14 +35,15 @@ add_image_size('portada-llibre-small', 9999, 120);
  * Load CSS, before the JS
  */
 
-function css_enqueue() {
+function cm2_css_enqueue() {
+	global $theme_version_number;
 	// Styles
-	wp_register_style('style', get_template_directory_uri() . "/style.css", false, '2.0a', 'all');
+	wp_register_style('style', get_template_directory_uri() . "/style.css", false, $theme_version_number, 'all');
 	// Load styles
 	wp_enqueue_style('style');
 }
 
-add_action('wp_enqueue_scripts', 'css_enqueue', 11);
+add_action('wp_enqueue_scripts', 'cm2_css_enqueue', 11);
 
 
 
@@ -41,13 +51,13 @@ add_action('wp_enqueue_scripts', 'css_enqueue', 11);
  * Load jQuery from Google’s servers, on the footer, and not in the admin area
  */
 
-function jquery_enqueue() {
+function cm2_jquery_enqueue() {
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null, true);
 	wp_enqueue_script('jquery');
 }
 
-if (!is_admin()) add_action('wp_enqueue_scripts', 'jquery_enqueue', 12);
+if (!is_admin()) add_action('wp_enqueue_scripts', 'cm2_jquery_enqueue', 12);
 
 
 
@@ -55,18 +65,18 @@ if (!is_admin()) add_action('wp_enqueue_scripts', 'jquery_enqueue', 12);
  * Load the rest of the JS, after jQuery
  */
 
-function js_enqueue() {
+function cm2_js_enqueue() {
+	global $theme_version_number;
 	// Head
 	wp_register_script('html5shiv', get_template_directory_uri() . "/js/html5shiv.min.js", false, '3.6.2pre', false);
 	wp_register_script('respond', get_template_directory_uri() . "/js/respond.js", false, '1.1.0', false);
-	wp_register_script('prefix-free', get_template_directory_uri() . "/js/prefixfree.min.js", false, '1.0.7', false);
 	// Footer
 	wp_register_script('retina', get_template_directory_uri() . "/js/retina.min.js", false, '0.0.2', true);
 	// Load scripts
 	wp_enqueue_script(array('html5shiv', 'respond', 'retina'));
 }
 
-add_action('wp_enqueue_scripts', 'js_enqueue', 13);
+add_action('wp_enqueue_scripts', 'cm2_js_enqueue', 13);
 
 
 
@@ -74,16 +84,16 @@ add_action('wp_enqueue_scripts', 'js_enqueue', 13);
  * The header and menu classes
  */
 
-function the_body_class($echo = true) {
+function cm2_body_class($echo = true) {
 	if (is_page()) {
 		if (get_field('cm_section', get_the_ID()) == 'Col·loqui') {
 			$body_class = 'entrevistes';
 		} else {
 			$body_class = clean_for_url(get_field('cm_section', get_the_ID()), false);
 		}
-	} elseif (is_singular('articles') || is_tax('articles')) {
+	} elseif (is_singular('articles') || is_tax('cat_articles')) {
 		$body_class = 'articles';
-	} elseif (is_singular('llibres') || is_tax('llibres')) {
+	} elseif (is_singular('llibres') || is_tax('public_llibres')) {
 		$body_class = 'llibres';
 	}
 	// The result
@@ -94,358 +104,14 @@ function the_body_class($echo = true) {
 	}
 }
 
-function the_menu_class($the_class) {
-	$body_class = the_body_class(false);
+function cm2_menu_class($the_class) {
+	$body_class = cm2_body_class(false);
 	if ($body_class != $the_class) {
 		echo $the_class;
 	} else {
-		echo $the_class.' active';
+		echo $the_class . ' active';
 	}
 }
-
-
-
-/*
- * Custom Post Types
- */
-
-function add_custom_post_types() {
-	register_post_type('articles', array(
-		'label' => 'Articles',
-		'description' => 'Articles Levante EMV',
-		'public' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'show_in_nav_menus' => true,
-		'menu_icon' => get_stylesheet_directory_uri() . '/img/blog-blue.png',
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'rewrite' => array('slug' => 'article', 'with_front' => false),
-		'query_var' => true,
-		'supports' => array(
-			'title',
-			'editor',
-			'custom-fields',
-			'revisions',
-			'excerpt',
-			'author',
-		),
-		'labels' => array (
-			'name' => 'Articles',
-			'singular_name' => 'Article',
-			'menu_name' => 'Articles',
-			'add_new' => 'Afegir nou',
-			'add_new_item' => 'Afegir nou article',
-			'edit' => 'Editar',
-			'edit_item' => 'Editar article',
-			'new_item' => 'Nou article',
-			'view' => 'Vore',
-			'view_item' => 'Vore article',
-			'search_items' => 'Buscar articles',
-			'not_found' => 'No hi ha articles',
-			'not_found_in_trash' => 'No hi ha articles a la paperera',
-		),
-	)); // articles
-	register_post_type('llibres', array(
-		'label' => 'Llibres',
-		'description' => 'Llibres de Carme Miquel',
-		'public' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'show_in_nav_menus' => true,
-		'menu_icon' => get_stylesheet_directory_uri() . '/img/blog-blue.png',
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'rewrite' => array('slug' => 'llibre', 'with_front' => false),
-		'query_var' => true,
-		'supports' => array(
-			'title',
-			'editor',
-			'custom-fields',
-			'revisions',
-			'excerpt',
-			'author',
-		),
-		'labels' => array (
-			'name' => 'LLibres',
-			'singular_name' => 'LLibre',
-			'menu_name' => 'LLibres',
-			'add_new' => 'Afegir nou',
-			'add_new_item' => 'Afegir nou llibre',
-			'edit' => 'Editar',
-			'edit_item' => 'Editar llibre',
-			'new_item' => 'Nou llibre',
-			'view' => 'Vore',
-			'view_item' => 'Vore llibre',
-			'search_items' => 'Buscar llibres',
-			'not_found' => 'No hi ha llibres',
-			'not_found_in_trash' => 'No hi ha llibres a la paperera',
-		),
-	)); // llibres
-}
-
-add_action('init', 'add_custom_post_types');
-
-
-
-/*
- * Custom Taxonomies
- */
-
-function add_custom_taxanomies() {
-	register_taxonomy('cat_articles', array('articles'), array(
-		'hierarchical' => true,
-		'labels' => array(
-			'name' => _x('Camps', 'taxonomy general name'),
-			'singular_name' => _x('Camp', 'taxonomy singular name'),
-			'search_items' =>  __('Buscar camps'),
-			'all_items' => __('Tots els camps'),
-			'parent_item' => __('Camp pare'),
-			'parent_item_colon' => __('Camp pare:'),
-			'edit_item' => __('Editar camp'),
-			'update_item' => __('Actualitzar camp'),
-			'add_new_item' => __('Afegir nou camp'),
-			'new_item_name' => __('Nou nom de camp'),
-			'menu_name' => __('Camps'),
-		),
-		'show_ui' => true,
-		'query_var' => true,
-		'rewrite' => array(
-			'slug' => 'articles',
-			'with_front' => false,
-			'hierarchical' => true,
-		),
-		'singular_label' => 'Camp',
-	)); //cat_articles
-	register_taxonomy('public_llibres', array('llibres'), array(
-		'hierarchical' => true,
-		'labels' => array(
-			'name' => _x('Public', 'taxonomy general name'),
-			'singular_name' => _x('Public', 'taxonomy singular name'),
-			'search_items' =>  __('Buscar publics'),
-			'all_items' => __('Tots els publics'),
-			'parent_item' => __('Public pare'),
-			'parent_item_colon' => __('Public pare:'),
-			'edit_item' => __('Editar public'),
-			'update_item' => __('Actualitzar public'),
-			'add_new_item' => __('Afegir nou public'),
-			'new_item_name' => __('Nou nom de public'),
-			'menu_name' => __('Publics'),
-		),
-		'show_ui' => true,
-		'query_var' => true,
-		'rewrite' => array(
-			'slug' => 'llibres',
-			'with_front' => false,
-			'hierarchical' => true,
-		),
-		'singular_label' => 'Public',
-	)); // public_llibres
-}
-
-add_action('init', 'add_custom_taxanomies');
-
-
-
-/*
- * Admin menu order
- */
-
-function the_menu_order($menu_ord) {
-	if (!$menu_ord) return true;
-	return array(
-		'index.php', // Dashboard Link
-		'separator1',
-		'edit.php?post_type=articles', // Articles
-		'edit.php?post_type=llibres',  // Llibres
-		'edit.php?post_type=page',     // Pages
-		'edit.php',                    // Posts
-	);
-}
-
-add_filter('custom_menu_order', 'the_menu_order');
-add_filter('menu_order', 'the_menu_order');
-
-
-
-/*
- * Add Custom Post Types and Custom Taxonomies to the Dashboard
- */
-
-function add_custom_post_type_and_taxonomy_to_dashboard() {
-	/* Custom Post Types */
-	$post_types = get_post_types(array('_builtin' => false), 'objects');
-	foreach ($post_types as $post_type) {
-		$num_posts = wp_count_posts($post_type->name);
-		$num = number_format_i18n($num_posts->publish);
-		$text = _n($post_type->labels->singular_name, $post_type->labels->name, $num_posts->publish);
-		if (current_user_can('edit_posts')) {
-			$num = '<a href="edit.php?post_type=' . $post_type->name . '">' . $num . '</a>';
-			$text = '<a href="edit.php?post_type=' . $post_type->name . '">' . $text . '</a>';
-		}
-		echo '<td class="first b b-' . $post_type->name . 's">' . $num . '</td>';
-		echo '<td class="t ' . $post_type->name . 's">' . $text . '</td>';
-		echo '</tr>';
-		if ($num_posts->pending > 0) {
-			$num = number_format_i18n($num_posts->pending);
-			$text = _n($post_type->labels->singular_name . ' Pendent', $post_type->labels->name . ' Pendents', $num_posts->pending);
-			if (current_user_can('edit_posts')) {
-				$num = '<a href="edit.php?post_status=pending&post_type=' . $post_type->name . '">' . $num . '</a>';
-				$text = '<a href="edit.php?post_status=pending&post_type=' . $post_type->name . '">' . $text . '</a>';
-			}
-			echo '<td class="first b b-' . $post_type->name . 's">' . $num . '</td>';
-			echo '<td class="t ' . $post_type->name . 's">' . $text . '</td>';
-			echo '</tr>';
-		}
-	}
-	/* Custom Taxonomies */
-	$taxonomies = get_taxonomies(array('_builtin' => false), 'objects');
-	foreach ($taxonomies as $taxonomy) {
-		$num_terms  = wp_count_terms($taxonomy->name);
-		$num = number_format_i18n($num_terms);
-		$text = _n($taxonomy->labels->singular_name, $taxonomy->labels->name, $num_terms);
-		$associated_post_type = $taxonomy->object_type;
-		if (current_user_can('manage_categories')) {
-			$num = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $num . '</a>';
-			$text = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $text . '</a>';
-		}
-		echo '<td class="first b b-' . $taxonomy->name . 's">' . $num . '</td>';
-		echo '<td class="t ' . $taxonomy->name . 's">' . $text . '</td>';
-		echo '</tr><tr>';
-	}
-}
-
-add_action('right_now_content_table_end', 'add_custom_post_type_and_taxonomy_to_dashboard');
-
-
-
-/*
- * Thumbnail with his own column on ‘llibres’ custom post type
- */
-
-function llibres_column_thumb($column) {
-	global $post;
-	switch ($column) {
-		case 'thumbnail':
-			the_post_thumbnail();
-		break;
-	}
-}
-
-add_action('manage_llibres_posts_custom_column', 'llibres_column_thumb');
-
-
-
-/*
-* Columns for the Custom Post Types
-*/
-
-function articles_columns($columns) {
-	$columns = array(
-		'cb' => '<input type="checkbox" />',
-		'title' => 'Article',
-		'cat_articles' => 'Camps',
-		'date' => 'Data'
-	);
-	return $columns;
-}
-
-function llibres_columns($columns) {
-	$columns = array(
-		'cb' => '<input type="checkbox" />',
-		'title' => 'Llibre',
-		'thumbnail' => 'Portada',
-		'public_llibres' => 'Public',
-		'date' => 'Data'
-	);
-	return $columns;
-}
-
-add_filter('manage_edit-articles_columns', 'articles_columns');
-add_filter('manage_edit-llibres_columns', 'llibres_columns');
-
-
-
-/*
- * Show Custom Taxonomies with a column at the posts view
- */
-
-function articles_column($column_name, $post_id) {
-	$taxonomy = $column_name;
-	$post_type = get_post_type($post_id);
-	$terms = get_the_terms($post_id, $taxonomy);
-	if (!empty($terms)) {
-		foreach ($terms as $term)
-			$post_terms[] = "<a href='edit.php?post_type={$post_type}&{$taxonomy}={$term->slug}'> " . esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a>";
-		echo join(', ', $post_terms);
-	} else {
-		echo '<i>No hi ha res ací</i>'; // No taxonomies
-	}
-}
-
-add_action('manage_articles_posts_custom_column', 'articles_column', 10, 2);
-
-
-
-/*
- * Make Custom Post Type columns sortable
- */
-
-function sortable_columns() {
-	return array(
-		'title' => 'title',
-		'cat_articles' => 'cat_articles',
-		'public_llibres' => 'public_llibres',
-		'date' => 'date'
-	);
-}
-
-add_filter('manage_edit-articles_sortable_columns', 'sortable_columns');
-add_filter('manage_edit-llibres_sortable_columns', 'sortable_columns');
-
-
-
-/*
- * Taxonomy filter for manage posts page
- */
-
-function taxonomy_filter_restrict_manage_posts() {
-	global $typenow;
-	$post_types = get_post_types(array('_builtin' => false));
-	if (in_array($typenow, $post_types)) {
-		$filters = get_object_taxonomies($typenow);
-		foreach ($filters as $tax_slug) {
-			$tax_obj = get_taxonomy($tax_slug);
-			wp_dropdown_categories(array(
-				'show_option_all' => __('Mostrar tots els '.$tax_obj->label),
-				'taxonomy' => $tax_slug,
-				'name' => $tax_obj->name,
-				'orderby' => 'name',
-				'selected' => $_GET[$tax_slug],
-				'hierarchical' => $tax_obj->hierarchical,
-				'show_count' => false,
-				'hide_empty' => true
-			));
-		}
-	}
-}
-
-function taxonomy_filter_post_type_request($query) {
-	global $pagenow, $typenow;
-	if ('edit.php' == $pagenow) {
-		$filters = get_object_taxonomies($typenow);
-		foreach ($filters as $tax_slug) {
-			$var = &$query->query_vars[$tax_slug];
-			if (isset($var)) {
-				$term = get_term_by('id', $var, $tax_slug);
-				$var = $term->slug;
-			}
-		}
-	}
-}
-
-add_action('restrict_manage_posts', 'taxonomy_filter_restrict_manage_posts');
-add_filter('parse_query', 'taxonomy_filter_post_type_request');
 
 
 
@@ -453,13 +119,36 @@ add_filter('parse_query', 'taxonomy_filter_post_type_request');
  * Prevent Wordpress from adding the attributes ‘width’ and ‘height’ to img elements
  */
 
-function remove_width_attribute($html) {
+function cm2_remove_width_attribute($html) {
 	$html = preg_replace('/(width|height)="\d*"\s/', "", $html);
 	return $html;
 }
 
-add_filter('post_thumbnail_html', 'remove_width_attribute', 10);
-add_filter('image_send_to_editor', 'remove_width_attribute', 10);
+add_filter('post_thumbnail_html', 'cm2_remove_width_attribute', 10);
+add_filter('image_send_to_editor', 'cm2_remove_width_attribute', 10);
+
+
+
+/*
+ * Removing unwanted crap from the head
+ */
+
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+
+
+
+/*
+ * Removing the “read more” link jump, I find it anoying and confusing
+ */
+
+function cm2_remove_more_jump_link($link) {
+	$link = preg_replace('|#more-[0-9]+|', '', $link);
+	return $link;
+}
+
+add_filter('the_content_more_link', 'cm2_remove_more_jump_link');
 
 
 
@@ -497,46 +186,3 @@ function clean_for_url($toClean, $echo = true) {
 	}
 
 }
-
-
-
-/*
- * Modify Wordpress’ visual editor (remove icons and reorganize)
- */
-
-// TinyMCE: First line toolbar customizations
-function base_extended_editor_mce_buttons($buttons) {
-	// The settings are returned in this array. Customize to suite your needs.
-	return array(
-		'bold', 'italic', 'underline', 'separator', 'bullist', 'numlist', 'blockquote', 'separator', 'formatselect', 'separator', 'link', 'unlink', 'separator', 'wp_more', 'separator', 'pastetext', 'separator', 'undo', 'redo', 'separator', 'removeformat', 'spellchecker', 'fullscreen', 'charmap', 'wp_help'
-	);
-	/* WordPress Default:
-	return array(
-		'bold', 'italic', 'strikethrough', 'separator', 'bullist', 'numlist', 'blockquote', 'separator', 'justifyleft', 'justifycenter', 'justifyright', 'separator', 'link', 'unlink', 'wp_more', 'separator', 'spellchecker', 'fullscreen', 'wp_adv'
-	); */
-}
-
-add_filter('mce_buttons', 'base_extended_editor_mce_buttons', 0);
-
-// TinyMCE: Second line toolbar customizations
-function base_extended_editor_mce_buttons_2($buttons) {
-	// The settings are returned in this array. Customize to suite your needs. An empty array is used here because I remove the second row of icons.
-	return array();
-	/* WordPress Default:
-	return array(
-		'formatselect', 'underline', 'justifyfull', 'forecolor', 'separator', 'pastetext', 'pasteword', 'removeformat', 'separator', 'media', 'charmap', 'separator', 'outdent', 'indent', 'separator', 'undo', 'redo', 'wp_help'
-	); */
-}
-
-add_filter('mce_buttons_2', 'base_extended_editor_mce_buttons_2', 0);
-
-// Customize the format dropdown items
-function base_custom_mce_format($init) {
-	// Add block format elements you want to show in dropdown
-	$init['theme_advanced_blockformats'] = 'p,h2,h3,h4,h5,h6';
-	// Add elements not included in standard tinyMCE dropdown p,h1,h2,h3,h4,h5,h6
-	//$init['extended_valid_elements'] = 'code[*]';
-	return $init;
-}
-
-add_filter('tiny_mce_before_init', 'base_custom_mce_format');
