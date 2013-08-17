@@ -7,8 +7,7 @@
 
 <!DOCTYPE html>
 
-<!--[if lt IE 8]>      <html <?php language_attributes(); ?> class="ie8 ie7"> <![endif]-->
-<!--[if IE 8]>         <html <?php language_attributes(); ?> class="ie8"> <![endif]-->
+<!--[if lt IE 9]>      <html <?php language_attributes(); ?> class="ie8"> <![endif]-->
 <!--[if gt IE 8]><!--> <html <?php language_attributes(); ?>> <!--<![endif]-->
 
 <head>

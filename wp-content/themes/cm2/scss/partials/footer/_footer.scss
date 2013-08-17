@@ -1,0 +1,39 @@
+/* Footer */
+
+#footer {
+	color: $color-text-light;
+	margin: 40px $gutter/2 15px;
+	width: $columns6;
+	small {
+		font: {
+			family: $type-serif;
+			size: .625em;  // 10px / 16px
+		}
+		@media (min-width: 400px) {
+			line-height: 32px;
+		}
+	}
+	@media (min-width: 645px) {
+		margin: 40px $gutter/2 15px $columns2+($gutter/2)*3;
+		width: $columns4;
+	}
+}
+
+@media (min-width: 400px) {
+	.footer-left {
+		float: left;
+	}
+}
+
+.footer-right {
+	&:before {
+		content: "\A";
+		white-space: pre;
+	}
+	@media (min-width: 400px) {
+		float: right;
+		&:before {
+			content: " ";
+		}
+	}
+}

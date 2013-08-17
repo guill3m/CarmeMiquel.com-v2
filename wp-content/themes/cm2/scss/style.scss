@@ -11,31 +11,25 @@ License: Private
 Tags: flexible, responsive, mobile first, 2 columns
 */
 
+// Fonts
+@import "partials/base/font-face";
+
 // Variables
-@import "variables";
+@import "partials/base/variables";
 
 // Mixins
-@import "mixins";
-
-// Fonts
-@import "font-face";
+@import "partials/mixins/css3";
+@import "partials/mixins/mixins";
 
 // Reset
-@import "reset";
-@import "wordpress";
+@import "partials/base/reset";
+// @import "partials/base/wordpress"; // Not needed for the moment
 
 // Styles
-@import "base";
-@import "header";
-@import "menu";
-@import "content";
-@import "sidebar";
-@import "footer";
-@import "misc";
-@import "colors";
-
-// Media Queries
-@import "respond-mobile";
-@import "respond-tablet";
-@import "respond-desktop";
-@import "retina";
+@import "partials/base/base";
+@import "partials/content/content";
+@import "partials/header/header";
+@import "partials/header/menu";
+@import "partials/sidebar/sidebar";
+@import "partials/footer/footer";
+@import "partials/base/colors";

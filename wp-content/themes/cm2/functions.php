@@ -26,7 +26,6 @@ add_theme_support('automatic-feed-links');
 add_theme_support('menus');
 add_theme_support('post-thumbnails', array('llibres', 'page'));
 add_image_size('sidebar', 350, 9999);
-add_image_size('portada-llibre', 250, 9999);
 add_image_size('portada-llibre-small', 9999, 120);
 
 

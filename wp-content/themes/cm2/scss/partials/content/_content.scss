@@ -1,0 +1,41 @@
+/* Content */
+
+p {
+	line-height: 1.4; // 21px / 15px
+	font-size: .9375em; // 15px / 16px
+}
+
+a {
+	color: $color-text;
+	text-decoration: none;
+	@include transition(all .3s ease-out);
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+i,
+em {
+	font-style: italic;
+}
+
+.content {
+	margin: $gutter-mg;
+	width: $columns6;
+	p {
+		margin-top: 26px;
+		+ p {
+			margin-top: 1em;
+		}
+	}
+	@media (min-width: 645px) {
+		float: right;
+		width: $columns4;
+	}
+}

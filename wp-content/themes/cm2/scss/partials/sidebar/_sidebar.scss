@@ -4,6 +4,10 @@
 .sidebar {
 	margin: $gutter-mg;
 	width: $columns6;
+	@media (min-width: 645px) {
+		float: left;
+		width: $columns2;
+	}
 }
 
 .title-block {

@@ -1,11 +1,7 @@
 /* Reset & Normalize */
 
 * {
-	box-sizing: border-box;
-	.ie7 & {
-		box-sizing: border-box;
-		behavior: url(http://www.carmemiquel.com/wp-content/themes/cm2/js/boxsizing.htc);
-	}
+	@include box-sizing(border-box);
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, input, textarea, output, ruby, section, summary, time, mark, audio, video {
@@ -22,6 +18,10 @@ a img {
 	border: 0;
 }
 
+a:focus {
+	outline: thin dotted;
+}
+
 a:active,
 a:hover {
 	outline: 0;
@@ -32,18 +32,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 abbr[title], dfn[title] {
-	border-bottom:1px dotted;
-	cursor:help;
+	border-bottom: 1px dotted;
+	cursor: help;
 }
 
 audio, canvas, video {
 	display: inline-block;
-	.ie7 & {
-		display: inline;
-		zoom: 1;
-	}
 }
-
 
 audio:not([controls]) {
 	display: none;
@@ -78,11 +73,8 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	appearance: button;
+	-webkit-appearance: button;
 	cursor: pointer;
-	.ie7 & {
-		overflow: visible;
-	}
 }
 
 button[disabled],
@@ -127,25 +119,18 @@ html {
 }
 
 img {
-	height: 100%;
 	max-width: 100%;
-	.ie7 & {
-		-ms-interpolation-mode: bicubic;
-	}
+	vertical-align: bottom;
 }
 
 input, select {
 	vertical-align: middle;
 }
 
-.ie7 input[type="checkbox"],
-.ie7 input[type="radio"] {
-	height: 13px;
-	width: 13px;
-}
-
-.ie7 legend {
-	margin-left: -7px;
+input[type="checkbox"],
+input[type="radio"] {
+	height: 13px !important;
+	width: 13px !important;
 }
 
 mark {
@@ -192,18 +177,4 @@ table {
 textarea {
 	overflow: auto;
 	vertical-align: top;
-}
-
-.cf {
-	.ie7 & {
-		zoom: 1;
-	}
-	&:before,
-	&:after {
-		content: "";
-		display: table;
-	}
-	&:after {
-		clear:both;
-	}
 }

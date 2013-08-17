@@ -1,0 +1,45 @@
+/* Colors */
+
+a,
+.title {
+	@each $color in $colors {
+		.#{nth($color, 1)} & {
+			color: nth($color, 2);
+		}
+	}
+}
+
+a:hover,
+a:focus {
+	color: #000;
+}
+
+#menu {
+	@each $color in $colors {
+		.#{nth($color, 1)} a {
+			color: nth($color, 2);
+		}
+	}
+}
+
+::-moz-selection {
+	background-color: $color-text;
+	color: #fff;
+	text-shadow: none;
+	@each $color in $colors {
+		.#{nth($color, 1)} & {
+			background-color: nth($color, 2);
+		}
+	}
+}
+
+::selection {
+	background-color: $color-text;
+	color: #fff;
+	text-shadow: none;
+	@each $color in $colors {
+		.#{nth($color, 1)} & {
+			background-color: nth($color, 2);
+		}
+	}
+}

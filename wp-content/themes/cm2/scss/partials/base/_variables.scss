@@ -32,3 +32,11 @@ $max-width: 1140px;
 // Type
 $type-serif: Arvo, serif;
 $type-sans:  "Open Sans", sans-serif;
+
+// Arrays
+$colors: 'lautora' $color-autora,
+         'entrevistes' $color-entrevistes,
+         'llibres' $color-llibres,
+         'articles' $color-articles,
+         'videos' $color-videos,
+         'mes-sobre' $color-mes-sobre;

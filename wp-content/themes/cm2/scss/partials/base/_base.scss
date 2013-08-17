@@ -1,0 +1,17 @@
+/* Base */
+
+body {
+	background: url(img/bg.jpg) repeat 0 0 #fff;
+	color: $color-text;
+	font: 400 100% $type-sans; // 16px
+	@media (-webkit-min-device-pixel-ratio: 1.5),
+	       (min-resolution: 144dpi) {
+		background-size: 125px 125px;
+	}
+}
+
+#center {
+	margin: 0 auto;
+	max-width: 1140px;
+	width: 95%;
+}
