@@ -1,6 +1,7 @@
 /* Footer */
 
-#footer {
+.footer {
+	@extend %clear-fix;
 	color: $color-text-light;
 	margin: 40px $gutter/2 15px;
 	width: $columns6;

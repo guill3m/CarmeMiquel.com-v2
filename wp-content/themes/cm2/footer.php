@@ -1,11 +1,11 @@
-<?php 
+<?php
 /**
  * @package WordPress
  * @subpackage CarmeMiquel.com v2
  */
 ?>
 
-		<footer id="footer" class="cf">
+		<footer id="footer" class="footer">
 			<small>
 			<?php if ( function_exists('yoast_breadcrumb') ) {
 				yoast_breadcrumb('<nav class="breadcrumbs"><p>','</p></nav>');

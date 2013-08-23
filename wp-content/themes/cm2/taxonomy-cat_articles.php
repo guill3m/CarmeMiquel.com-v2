@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * @package WordPress
  * @subpackage CarmeMiquel.com v2
@@ -9,19 +9,19 @@
 
 <?php if (have_posts()) : ?>
 
+	<hgroup class="title-block">
+		<h2 class="title">Articles</h2>
+		<h3 class="subtitle"><?php echo $term->name; ?></h3>
+	</hgroup><!-- END .title-block -->
+
 	<?php while (have_posts()) : the_post(); ?>
 
-		<article id="post-<?php the_ID(); ?>" class="post cf">
+		<article id="post-<?php the_ID(); ?>" class="content" itemscope itemtype="http://schema.org/Article">
 
-			<hgroup class="title-block">
-				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<h3 class="subtitle"><?php the_time('j F, Y'); ?></h3>
-				<h4 class="subsubtitle"><?php the_field('cm_publicacio'); ?></h4>
-			</hgroup><!-- END .title -->
-
-			<div class="content">
-				<?php the_content(); ?>
-			</div><!-- END .content -->
+			<h2 class="the-title" itemprop="name"><?php the_title(); ?></h2>
+			<meta itemprop="author" content="Carme Miquel" />
+			<p class="date"><span itemprop="publisher">Levante EMV</span>. <time datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_time('j \d\e F, Y'); ?></time></p>
+			<?php the_content(); ?>
 
 		</article><!-- END #post-<?php the_ID(); ?> -->
 

@@ -56,7 +56,9 @@ function cm2_jquery_enqueue() {
 	wp_enqueue_script('jquery');
 }
 
-if (!is_admin()) add_action('wp_enqueue_scripts', 'cm2_jquery_enqueue', 12);
+if (!is_admin()) :
+	add_action('wp_enqueue_scripts', 'cm2_jquery_enqueue', 12);
+endif;
 
 
 
@@ -80,31 +82,11 @@ add_action('wp_enqueue_scripts', 'cm2_js_enqueue', 13);
 
 
 /*
- * The header and menu classes
+ * The menu classes
  */
 
-function cm2_body_class($echo = true) {
-	if (is_page()) {
-		if (get_field('cm_section', get_the_ID()) == 'Col·loqui') {
-			$body_class = 'entrevistes';
-		} else {
-			$body_class = clean_for_url(get_field('cm_section', get_the_ID()), false);
-		}
-	} elseif (is_singular('articles') || is_tax('cat_articles')) {
-		$body_class = 'articles';
-	} elseif (is_singular('llibres') || is_tax('public_llibres')) {
-		$body_class = 'llibres';
-	}
-	// The result
-	if ($echo == true) {
-		echo $body_class;
-	} else {
-		return $body_class;
-	}
-}
-
 function cm2_menu_class($the_class) {
-	$body_class = cm2_body_class(false);
+	global $body_class;
 	if ($body_class != $the_class) {
 		echo $the_class;
 	} else {
@@ -132,9 +114,9 @@ add_filter('image_send_to_editor', 'cm2_remove_width_attribute', 10);
  * Removing unwanted crap from the head
  */
 
-remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_generator');
 
 
 

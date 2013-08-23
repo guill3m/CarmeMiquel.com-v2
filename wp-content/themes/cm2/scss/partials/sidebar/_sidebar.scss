@@ -14,34 +14,6 @@
 	margin-bottom: 15px;
 }
 
-.title,
-.subsubtitle {
-	font-family: $type-serif;
-}
-
-.title {
-	font: {
-		size: 3em;  // 48px / 16px
-		weight: 700;
-	}
-	line-height: 1;
-}
-
-.subtitle {
-	font: {
-		size: 2.3125em;  // 37px / 16px
-		weight: 600;
-	}
-	line-height: 1.13513513513514;  // 42px / 37px
-	margin-top: 15px;
-}
-
-.subsubtitle {
-	color: $color-text-light;
-	font-size: 1.625em;  // 26px / 16px
-	line-height: 1.38461538461538;  // 36px / 26px
-}
-
 .sidebar {
 	margin-top: 15px;
 }

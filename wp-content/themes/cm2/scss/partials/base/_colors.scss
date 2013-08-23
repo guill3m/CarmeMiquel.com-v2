@@ -14,7 +14,15 @@ a:focus {
 	color: #000;
 }
 
-#menu {
+hr {
+	@each $color in $colors {
+		.#{nth($color, 1)} & {
+			background-color: nth($color, 2);
+		}
+	}
+}
+
+.menu {
 	@each $color in $colors {
 		.#{nth($color, 1)} a {
 			color: nth($color, 2);

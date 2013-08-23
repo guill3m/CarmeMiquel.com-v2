@@ -23,22 +23,22 @@
 
 </head>
 
-<body class="<?php cm2_body_class(); ?>">
+<body class="<?php echo $body_class; ?>">
 
-	<div id="center">
+	<div id="center" class="center">
 
-		<header id="header">
-			<a id="site-title" href="<?php echo home_url('/'); ?>" title="Carme Miquel"><img src="<?php bloginfo('template_directory'); ?>/img/carme-miquel.png" alt="Carme Miquel" title="Carme Miquel" /></a>
+		<header id="header" class="header">
+			<a id="site-title" class="site-title" href="<?php echo home_url('/'); ?>" title="Carme Miquel"><img src="<?php bloginfo('template_directory'); ?>/img/carme-miquel.png" alt="Carme Miquel" title="Carme Miquel" /></a>
 			<nav>
-				<ul id="menu"><!--
-					--><li class="<?php cm2_menu_class('lautora'); ?>"><a href="<?php echo home_url(); ?>/autora/"><span data-icon="a"></span>Autora</a></li><!--
+				<ul id="menu" class="menu"><!--
+					--><li class="<?php cm2_menu_class('autora'); ?>"><a href="<?php echo home_url(); ?>/autora/"><span data-icon="a"></span>Autora</a></li><!--
 					--><li class="<?php cm2_menu_class('entrevistes'); ?>"><a href="<?php echo home_url(); ?>/entrevistes/"><span data-icon="b"></span>Entrevistes</a></li><!--
 					--><li class="<?php cm2_menu_class('llibres'); ?>"><a href="<?php echo home_url(); ?>/llibres/"><span data-icon="c"></span>Llibres</a></li><!--
 					--><li class="<?php cm2_menu_class('articles'); ?>"><a href="<?php echo home_url(); ?>/articles/"><span data-icon="d"></span>Articles</a></li><!--
 					--><li class="<?php cm2_menu_class('videos'); ?>"><a href="<?php echo home_url(); ?>/videos/"><span data-icon="e"></span>Vídeos</a></li><!--
 					--><li class="<?php cm2_menu_class('mes-sobre'); ?>"><a href="<?php echo home_url(); ?>/mes-sobre/"><span data-icon="f"></span>Més sobre…</a></li>
 				</ul><!-- END #menu -->
-				<div id="submenu" class="cf">
+				<div id="submenu" class="submenu">
 					<!--
 					Submenu Content :: Called with AJAX
 					-->

@@ -1,15 +1,17 @@
 /* Menu */
 
-#menu {
+.menu {
 	li {
 		display: block;
-		font-size: .9375em; // 15px / 16px
+		font-size: 1.125em; // 18px / 16px
+		line-height: 2;
 		margin: $gutter-mg;
 		text-transform: uppercase;
 		width: $columns6;
 		@media (min-width: 645px) {
 			display: inline-block;
 			font-size: .8125em; // 13px / 16px
+			line-height: 1;
 			margin: $gutter-mg;
 			text-transform: uppercase;
 			width: $columns1;
@@ -75,7 +77,8 @@
 	}
 }
 
-#submenu {
+.submenu {
+	@extend %clear-fix;
 	margin: $gutter-mg;
 	width: $columns6;
 }

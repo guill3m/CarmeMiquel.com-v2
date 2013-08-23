@@ -10,8 +10,12 @@ body {
 	}
 }
 
-#center {
+.center {
 	margin: 0 auto;
 	max-width: 1140px;
 	width: 95%;
+}
+
+.cf {
+	@extend %clear-fix;
 }

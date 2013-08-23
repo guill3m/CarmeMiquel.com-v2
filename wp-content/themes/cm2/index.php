@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * @package WordPress
  * @subpackage CarmeMiquel.com v2
@@ -11,10 +11,10 @@
 
 	<?php while (have_posts()) : the_post(); ?>
 
-		<article id="post-<?php the_ID(); ?>" class="post cf">
+		<article id="post-<?php the_ID(); ?>" class="cf">
 
 			<hgroup class="title-block">
-				<h2 clas="title"><?php the_field('cm_section'); ?>PUTA</h2>
+				<h2 clas="title"><?php the_field('cm_section'); ?></h2>
 				<h3 class="subtitle"><?php the_title(); ?></h3>
 				<h4 class="subsubtitle"><?php the_time('j F, Y'); ?></h4>
 			</hgroup><!-- END .title -->

@@ -16,7 +16,7 @@ Description: Custom post types and custom taxonomies
 function cm2_custom_post_types() {
 
 	$articles_labels = array(
-		'name' => 'Articles',
+		'name'               => 'Articles',
 		'singular_name'      => 'Article',
 		'menu_name'          => 'Articles',
 		'add_new'            => 'Afegir nou',
@@ -41,7 +41,7 @@ function cm2_custom_post_types() {
 	);
 	$articles_args = array(
 		'labels'          => $articles_labels,
-		'description'     => 'Articles Levante EMV',
+		'description'     => 'Articles de Carme Miquel a Levante EMV',
 		'public'          => true,
 		'capability_type' => 'post',
 		'hierarchical'    => false,
@@ -50,10 +50,46 @@ function cm2_custom_post_types() {
 		'rewrite'         => $articles_rewrite
 	);
 
+	$entrevistes_labels = array(
+		'name'               => 'Entrevistes',
+		'singular_name'      => 'Entrevista',
+		'menu_name'          => 'Entrevistes',
+		'add_new'            => 'Afegir nova',
+		'add_new_item'       => 'Afegir nova entrevista',
+		'edit'               => 'Editar',
+		'edit_item'          => 'Editar entrevista',
+		'new_item'           => 'Nova entrevista',
+		'view'               => 'Vore',
+		'view_item'          => 'Vore entrevista',
+		'search_items'       => 'Buscar entrevistes',
+		'not_found'          => 'No hi ha entrevistes',
+		'not_found_in_trash' => 'No hi ha entrevistes a la paperera'
+	);
+	$entrevistes_supports = array(
+		'title',
+		'editor',
+		'custom-fields'
+	);
+	$entrevistes_rewrite = array(
+		'slug'       => 'entrevistes',
+		'with_front' => false,
+		'feeds'      => false
+	);
+	$entrevistes_args = array(
+		'labels' => $entrevistes_labels,
+		'description'     => 'Entrevistes a Carme Miquel',
+		'public'          => true,
+		'capability_type' => 'post',
+		'hierarchical'    => false,
+		'supports'        => $entrevistes_supports,
+		'has_archive'     => false,
+		'rewrite'         => $entrevistes_rewrite
+	);
+
 	$llibres_labels = array(
-		'name' => 'LLibres',
-		'singular_name'      => 'LLibre',
-		'menu_name'          => 'LLibres',
+		'name'               => 'Llibres',
+		'singular_name'      => 'Llibre',
+		'menu_name'          => 'Llibres',
 		'add_new'            => 'Afegir nou',
 		'add_new_item'       => 'Afegir nou llibre',
 		'edit'               => 'Editar',
@@ -88,6 +124,7 @@ function cm2_custom_post_types() {
 	);
 
 	register_post_type('articles', $articles_args);
+	register_post_type('entrevistes', $entrevistes_args);
 	register_post_type('llibres', $llibres_args);
 
 }
@@ -118,6 +155,23 @@ function cm2_custom_post_types_messages($messages) {
 			// translators: Publish box date format, see http://php.net/date
 			date_i18n('M j, Y @ G:i', strtotime($post->post_date)), esc_url(get_permalink($post_ID))),
 		10 => sprintf('Esborrany de l’article actualitzat. <a target="_blank" href="%s">Previsualitzar article</a>', esc_url(add_query_arg( 'preview', 'true', get_permalink($post_ID)))),
+	);
+
+$messages['entrevites'] = array(
+		0 => '', // Unused. Messages start at index 1.
+		1 => sprintf('Entrevista actualitzada. <a href="%s">Vore entrevista</a>', esc_url(get_permalink($post_ID))),
+		2 => 'Camp personalitzat actualitzat.',
+		3 => 'Camp personalitzat el·liminat.',
+		4 => 'Entrevista actualitzada.',
+		/* translators: %s: date and time of the revision */
+		5 => isset($_GET['revision']) ? sprintf('Entrevista restaurada a la revisió de %s', wp_post_revision_title((int) $_GET['revision'], false)) : false,
+		6 => sprintf('Entrevista publicada. <a href="%s">Vore entrevista</a>', esc_url(get_permalink($post_ID))),
+		7 => 'Entrevista guardada.',
+		8 => sprintf('Entrevista enviada. <a target="_blank" href="%s">Vore entrevista</a>', esc_url(add_query_arg('preview', 'true', get_permalink($post_ID)))),
+		9 => sprintf('Entrevista programada per a: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Previsualitzar entrevista</a>',
+			// translators: Publish box date format, see http://php.net/date
+			date_i18n('M j, Y @ G:i', strtotime($post->post_date)), esc_url(get_permalink($post_ID))),
+		10 => sprintf('Esborrany de l’entrevista actualitzat. <a target="_blank" href="%s">Previsualitzar entrevista</a>', esc_url(add_query_arg( 'preview', 'true', get_permalink($post_ID)))),
 	);
 
 	$messages['llibres'] = array(
@@ -244,16 +298,6 @@ add_action('manage_llibres_posts_custom_column', 'cm2_llibres_column_thumb');
 * Columns for the Custom Post Types
 */
 
-function cm2_articles_columns($columns) {
-	$columns = array(
-		'cb' => '<input type="checkbox" />',
-		'title' => 'Article',
-		'cat_articles' => 'Camps',
-		'date' => 'Data'
-	);
-	return $columns;
-}
-
 function cm2_llibres_columns($columns) {
 	$columns = array(
 		'cb' => '<input type="checkbox" />',
@@ -265,7 +309,6 @@ function cm2_llibres_columns($columns) {
 	return $columns;
 }
 
-add_filter('manage_edit-articles_columns', 'cm2_articles_columns');
 add_filter('manage_edit-llibres_columns', 'cm2_llibres_columns');
 
 

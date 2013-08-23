@@ -16,14 +16,15 @@ Description: Some modifications to the WP-Admin
 function cm2_menu_order($menu_ord) {
 	if (!$menu_ord) return true;
 	return array(
-		'index.php',                   // Dashboard Link
-		'separator1',                  // Separator
-		'edit.php?post_type=articles', // Articles
-		'edit.php?post_type=llibres',  // Llibres
-		'edit.php?post_type=page',     // Pages
-		'edit.php',                    // Posts
-		'upload.php',                  // Media
-		'edit-comments.php'            // Comments
+		'index.php',                      // Dashboard Link
+		'separator1',                     // Separator
+		'edit.php?post_type=articles',    // Articles
+		'edit.php?post_type=llibres',     // Llibres
+		'edit.php?post_type=entrevistes', // Entrevistes
+		'edit.php?post_type=page',        // Pages
+		'edit.php',                       // Posts
+		'upload.php',                     // Media
+		'edit-comments.php'               // Comments
 	);
 }
 
