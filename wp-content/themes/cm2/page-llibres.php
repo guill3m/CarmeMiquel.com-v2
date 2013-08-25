@@ -2,7 +2,6 @@
 /**
  * @package WordPress
  * @subpackage CarmeMiquel.com v2
-Template Name: Llibres
  */
 ?>
 
@@ -17,9 +16,9 @@ get_header(); ?>
 			<h1 class="title">Llibres</h1>
 		</hgroup><!-- END .title-block -->
 
-		<div class="content">
+		<div id="content" class="content">
 			<h2 class="subtitle">Per públic</h2>
-			<ul>
+			<ul class="index">
 				<li><a href="http://carmemiquel.com/llibres/infantil/">Infantil</a></li>
 				<li><a href="http://carmemiquel.com/llibres/juvenil/">Juvenil</a></li>
 				<li><a href="http://carmemiquel.com/llibres/adults/">Adults</a></li>

@@ -17,16 +17,20 @@ $theme_version_number = $theme['Version'];
 
 /*
  * Add theme support:
- * RSS links on the head
  * Menus
  * Thumbnails and custom thumbnail sizes
  */
 
-add_theme_support('automatic-feed-links');
-add_theme_support('menus');
-add_theme_support('post-thumbnails', array('llibres', 'page'));
-add_image_size('sidebar', 350, 9999);
-add_image_size('portada-llibre-small', 9999, 120);
+function cm2_setup_theme() {
+	add_theme_support('menus');
+	add_theme_support('post-formats', array('audio', 'video'));
+	add_theme_support('post-thumbnails', array('entrevistes', 'llibres', 'page', 'videos'));
+	add_image_size('sidebar', 350, 9999);
+	add_image_size('llibre-small', 9999, 120);
+	add_image_size('video', 480, 270);
+}
+
+add_action('after_setup_theme', 'cm2_setup_theme');
 
 
 

@@ -68,10 +68,11 @@ function cm2_custom_post_types() {
 	$entrevistes_supports = array(
 		'title',
 		'editor',
-		'custom-fields'
+		'custom-fields',
+		'post-formats'
 	);
 	$entrevistes_rewrite = array(
-		'slug'       => 'entrevistes',
+		'slug'       => 'entrevista',
 		'with_front' => false,
 		'feeds'      => false
 	);
@@ -105,7 +106,8 @@ function cm2_custom_post_types() {
 		'title',
 		'editor',
 		'thumbnail',
-		'custom-fields'
+		'custom-fields',
+		'page-attributes'
 	);
 	$llibres_rewrite = array(
 		'slug'       => 'llibre',
@@ -117,15 +119,53 @@ function cm2_custom_post_types() {
 		'description'     => 'Llibres de Carme Miquel',
 		'public'          => true,
 		'capability_type' => 'post',
-		'hierarchical'    => false,
+		'hierarchical'    => true,
 		'supports'        => $llibres_supports,
 		'has_archive'     => false,
 		'rewrite'         => $llibres_rewrite
 	);
 
+	$videos_labels = array(
+		'name'               => 'Vídeos',
+		'singular_name'      => 'Vídeo',
+		'menu_name'          => 'Vídeos',
+		'add_new'            => 'Afegir nou',
+		'add_new_item'       => 'Afegir nou vídeo',
+		'edit'               => 'Editar',
+		'edit_item'          => 'Editar vídeo',
+		'new_item'           => 'Nou vídeo',
+		'view'               => 'Vore',
+		'view_item'          => 'Vore vídeo',
+		'search_items'       => 'Buscar vídeos',
+		'not_found'          => 'No hi ha vídeos',
+		'not_found_in_trash' => 'No hi ha vídeos a la paperera'
+	);
+	$videos_supports = array(
+		'title',
+		'editor',
+		'thumbnail',
+		'custom-fields'
+	);
+	$videos_rewrite = array(
+		'slug'       => 'video',
+		'with_front' => false,
+		'feeds'      => false
+	);
+	$videos_args = array(
+		'labels' => $videos_labels,
+		'description'     => 'Vídeos de llibres de Carme Miquel',
+		'public'          => true,
+		'capability_type' => 'post',
+		'hierarchical'    => false,
+		'supports'        => $videos_supports,
+		'has_archive'     => false,
+		'rewrite'         => $videos_rewrite
+	);
+
 	register_post_type('articles', $articles_args);
 	register_post_type('entrevistes', $entrevistes_args);
 	register_post_type('llibres', $llibres_args);
+	register_post_type('videos', $videos_args);
 
 }
 

@@ -26,16 +26,9 @@ get_header(); ?>
 			<?php the_content(); ?>
 		</div><!-- END .content -->
 
-		<?php if (get_field('cm_sidebar-txt') || has_post_thumbnail()) : ?>
+		<?php if (has_post_thumbnail()) : ?>
 			<aside class="sidebar">
-				<?php if (has_post_thumbnail()) : ?>
-					<?php the_post_thumbnail('sidebar', array('class' => 'sidebar-img', 'title' => the_title_attribute(array('echo' => 0)), 'alt' => the_title_attribute(array('echo' => 0)))); ?>
-				<?php endif; ?>
-				<?php if (get_field('cm_sidebar-txt')) : ?>
-					<div class="sidebar-txt">
-						<?php the_field('cm_sidebar-txt'); ?>
-					</div>
-				<?php endif; ?>
+				<?php the_post_thumbnail('sidebar', array('class' => 'sidebar-img', 'title' => the_title_attribute(array('echo' => 0)), 'alt' => the_title_attribute(array('echo' => 0)))); ?>
 			</aside><!-- END .sidebar -->
 		<?php endif; ?>
 

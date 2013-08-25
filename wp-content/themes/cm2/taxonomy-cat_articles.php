@@ -5,7 +5,8 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php $body_class = "articles";
+get_header(); ?>
 
 <?php if (have_posts()) : ?>
 

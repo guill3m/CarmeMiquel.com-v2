@@ -32,10 +32,10 @@
 			<nav>
 				<ul id="menu" class="menu"><!--
 					--><li class="<?php cm2_menu_class('autora'); ?>"><a href="<?php echo home_url(); ?>/autora/"><span data-icon="a"></span>Autora</a></li><!--
-					--><li class="<?php cm2_menu_class('entrevistes'); ?>"><a href="<?php echo home_url(); ?>/entrevistes/"><span data-icon="b"></span>Entrevistes</a></li><!--
-					--><li class="<?php cm2_menu_class('llibres'); ?>"><a href="<?php echo home_url(); ?>/llibres/"><span data-icon="c"></span>Llibres</a></li><!--
-					--><li class="<?php cm2_menu_class('articles'); ?>"><a href="<?php echo home_url(); ?>/articles/"><span data-icon="d"></span>Articles</a></li><!--
-					--><li class="<?php cm2_menu_class('videos'); ?>"><a href="<?php echo home_url(); ?>/videos/"><span data-icon="e"></span>Vídeos</a></li><!--
+					--><li class="<?php cm2_menu_class('entrevistes'); ?>"><a href="<?php echo home_url(); ?>/entrevistes/" class="with-submenu"><span data-icon="b"></span>Entrevistes</a></li><!--
+					--><li class="<?php cm2_menu_class('llibres'); ?>"><a href="<?php echo home_url(); ?>/llibres/" class="with-submenu"><span data-icon="c"></span>Llibres</a></li><!--
+					--><li class="<?php cm2_menu_class('articles'); ?>"><a href="<?php echo home_url(); ?>/articles/" class="with-submenu"><span data-icon="d"></span>Articles</a></li><!--
+					--><li class="<?php cm2_menu_class('videos'); ?>"><a href="<?php echo home_url(); ?>/videos/" class="with-submenu"><span data-icon="e"></span>Vídeos</a></li><!--
 					--><li class="<?php cm2_menu_class('mes-sobre'); ?>"><a href="<?php echo home_url(); ?>/mes-sobre/"><span data-icon="f"></span>Més sobre…</a></li>
 				</ul><!-- END #menu -->
 				<div id="submenu" class="submenu">
