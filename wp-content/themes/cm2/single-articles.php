@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php while (have_posts()) : the_post(); ?>
 
-	<article id="post-<?php the_ID(); ?>" class="cf" itemscope itemtype="http://schema.org/Article">
+	<article id="article-<?php the_ID(); ?>" class="cf" itemscope itemtype="http://schema.org/Article">
 
 		<hgroup class="title-block">
 			<h2 class="title">Article</h2>
@@ -24,7 +24,7 @@ get_header(); ?>
 			<?php the_content(); ?>
 		</div><!-- END .content -->
 
-	</article><!-- END #post-<?php the_ID(); ?> -->
+	</article><!-- END #article-<?php the_ID(); ?> -->
 
 <?php endwhile; ?>
 

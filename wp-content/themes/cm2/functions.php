@@ -138,6 +138,21 @@ add_filter('the_content_more_link', 'cm2_remove_more_jump_link');
 
 
 /*
+ * Check if we are on a subpage
+ */
+
+function is_subpage() {
+	global $post;
+	if ($post->post_parent) :
+		return $post->post_parent;
+	else :
+		return false;
+	endif;
+}
+
+
+
+/*
  * Clean string for use on URL
  * Usage:
  * <?php clean_for_url($string); ?>         // Echoes it

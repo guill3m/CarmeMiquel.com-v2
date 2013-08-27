@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php while (have_posts()) : the_post(); ?>
 
-	<article id="page-<?php the_ID(); ?>" class="cf">
+	<article id="interview-<?php the_ID(); ?>" class="cf">
 
 		<hgroup class="title-block">
 			<h2 class="title"><?php the_field('cm_interview_type'); ?></h2>
@@ -31,7 +31,7 @@ get_header(); ?>
 			</aside><!-- END .sidebar -->
 		<?php endif; ?>
 
-	</article><!-- END #page-<?php the_ID(); ?> -->
+	</article><!-- END #interview-<?php the_ID(); ?> -->
 
 <?php endwhile; ?>
 
