@@ -2,6 +2,7 @@
 /**
  * @package WordPress
  * @subpackage CarmeMiquel.com v2
+Template Name: Vídeos
  */
 ?>
 

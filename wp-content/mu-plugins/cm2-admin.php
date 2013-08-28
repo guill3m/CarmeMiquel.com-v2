@@ -18,9 +18,10 @@ function cm2_menu_order($menu_ord) {
 	return array(
 		'index.php',                      // Dashboard Link
 		'separator1',                     // Separator
-		'edit.php?post_type=articles',    // Articles
-		'edit.php?post_type=llibres',     // Llibres
 		'edit.php?post_type=entrevistes', // Entrevistes
+		'edit.php?post_type=llibres',     // Llibres
+		'edit.php?post_type=articles',    // Articles
+		'edit.php?post_type=videos',      // Vídeos
 		'edit.php?post_type=page',        // Pages
 		'edit.php',                       // Posts
 		'upload.php',                     // Media
@@ -60,6 +61,11 @@ function cm2_base_extended_editor_mce_buttons($buttons) {
 		'separator',
 		'bullist',
 		'numlist',
+		'blockquote',
+		'outdent',
+		'indent',
+		'separator',
+		'formatselect',
 		'separator',
 		'link',
 		'unlink',
@@ -71,7 +77,7 @@ function cm2_base_extended_editor_mce_buttons($buttons) {
 		'removeformat',
 		'separator',
 		'fullscreen',
-		'charmap'
+		'charmap',
 	);
 }
 
