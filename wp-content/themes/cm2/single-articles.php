@@ -18,9 +18,13 @@ get_header(); ?>
 		</hgroup><!-- END .title-block -->
 
 		<div class="content">
-			<h1 class="the-title" itemprop="name"><?php the_title(); ?></h1>
-			<meta itemprop="author" content="Carme Miquel" />
-			<p class="date"><span itemprop="publisher"><?php if(get_field('cm_publisher')) : the_field('cm_publisher'); else : echo 'Levante EMV'; endif;?></span>. <time datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_time('j \d\e F, Y'); ?></time></p>
+			<header>
+				<h1 class="the-title" itemprop="name"><?php the_title(); ?></h1>
+				<meta itemprop="author" content="Carme Miquel" />
+				<meta itemprop="genre" content="Columna d’opinió" />
+				<link itemprop="url" href="<?php the_permalink(); ?>">
+				<p class="date"><span itemprop="publisher"><?php if(get_field('cm_publisher')) : the_field('cm_publisher'); else : echo 'Levante EMV'; endif;?></span>. <time datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_time('j \d\e F, Y'); ?></time></p>
+			</header>
 			<?php the_content(); ?>
 		</div><!-- END .content -->
 

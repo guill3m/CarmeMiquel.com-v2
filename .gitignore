@@ -4,6 +4,7 @@ web carme/
 wp-content/backups
 wp-content/cache
 wp-content/languages
+wp-content/plugins/acf-repeater
 wp-content/plugins/advanced-custom-fields
 wp-content/plugins/mp6
 wp-content/plugins/wordpress-seo

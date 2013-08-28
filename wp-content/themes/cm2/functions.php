@@ -153,6 +153,23 @@ function is_subpage() {
 
 
 /*
+ * Taxonomy pages for ‘llibres’ and ‘articles’ post types show all posts in one page
+ */
+
+function cm2_show_all_posts($query) {
+	if ($query->is_tax('cat_articles') && $query->is_main_query()) {
+		$query->set('posts_per_page', '-1');
+	}
+	if ($query->is_tax('public_llibres') && $query->is_main_query()) {
+		$query->set('posts_per_page', '-1');
+	}
+}
+
+add_action('pre_get_posts', 'cm2_show_all_posts');
+
+
+
+/*
  * Clean string for use on URL
  * Usage:
  * <?php clean_for_url($string); ?>         // Echoes it

@@ -6,23 +6,30 @@
 ?>
 
 <?php $body_class = "articles";
-get_header(); ?>
+get_header();
+$term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));?>
 
 <?php if (have_posts()) : ?>
 
 	<hgroup class="title-block">
-		<h2 class="title">Articles</h2>
-		<h3 class="subtitle"><?php echo $term->name; ?></h3>
+		<h1 class="title">Articles</h1>
+		<h2 class="subtitle"><?php echo $term->name; ?></h2>
 	</hgroup><!-- END .title-block -->
 
 	<?php while (have_posts()) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" class="content" itemscope itemtype="http://schema.org/Article">
 
-			<h2 class="the-title" itemprop="name"><?php the_title(); ?></h2>
-			<meta itemprop="author" content="Carme Miquel" />
-			<p class="date"><span itemprop="publisher">Levante EMV</span>. <time datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_time('j \d\e F, Y'); ?></time></p>
-			<?php the_content(); ?>
+			<header>
+				<h3 class="the-title" itemprop="name"><a href="<?php the_permalink(); ?>" class="show-hide" data-show="#show-hide-<?php the_ID(); ?>" itemprop="url"><?php the_title(); ?></a></h3>
+				<meta itemprop="author" content="Carme Miquel" />
+				<meta itemprop="genre" content="Columna d’opinió" />
+				<p class="date"><span itemprop="publisher">Levante EMV</span>. <time datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_time('j \d\e F, Y'); ?></time></p>
+			</header>
+			<div id="show-hide-<?php the_ID(); ?>">
+				<?php the_content(); ?>
+				<footer class="article-footer"><?php the_terms($post->ID, 'cat_articles', 'Categories:', ', ', ' | '); ?><a href="<?php the_permalink(); ?>">Enllaç permanent a l’article</a></footer>
+			</div>
 
 		</article><!-- END #post-<?php the_ID(); ?> -->
 

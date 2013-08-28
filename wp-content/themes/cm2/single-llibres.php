@@ -30,22 +30,21 @@ get_header(); ?>
 
 		<article id="book-<?php the_ID(); ?>" class="cf" itemscope itemtype="http://schema.org/Book">
 
-			<div class="content">
-				<h1 class="subtitle" itemprop="name"><?php the_title(); ?></h1>
-				<meta itemprop="author" content="Carme Miquel" />
-				<meta itemprop="inLanguage" content="ca" />
-				<meta itemprop="audience" content="<?php the_terms($post->ID, 'public_llibres', '', ', ', ''); ?>" />
-				<link itemprop="url" href="<?php the_permalink(); ?>">
-				<?php if (get_field('cm_book_publisher') && get_field('cm_book_year')) : ?><p class="date"><span itemprop="publisher"><?php the_field('cm_book_publisher'); ?></span> (<time itemprop="datePublished"><?php the_field('cm_book_year'); ?></time>)</p><?php endif; ?>
-				<?php if (get_field('cm_book_isbn')) : ?><p class="date">ISBN: <span itemprop="isbn"><?php the_field('cm_book_isbn'); ?></span></p><?php endif; ?>
-			</div><!-- END .content -->
-
 			<hgroup class="title-block">
 				<h2 class="title">Llibre</h2>
 				<?php if (get_field('cm_book_awards')) : while(has_sub_field('cm_book_awards')) : ?><h3 class="subsubtitle" itemprop="award"><?php the_field('cm_book_award'); ?></h3><?php endwhile; endif; ?>
 			</hgroup><!-- END .title-block -->
 
 			<div class="content" itemprop="description">
+				<header>
+					<h1 class="the-title" itemprop="name"><?php the_title(); ?></h1>
+					<meta itemprop="author" content="Carme Miquel" />
+					<meta itemprop="inLanguage" content="ca" />
+					<meta itemprop="audience" content="<?php the_terms($post->ID, 'public_llibres', '', ', ', ''); ?>" />
+					<link itemprop="url" href="<?php the_permalink(); ?>">
+					<?php if (get_field('cm_book_publisher') && get_field('cm_book_year')) : ?><p class="date"><span itemprop="publisher"><?php the_field('cm_book_publisher'); ?></span> (<time itemprop="datePublished"><?php the_field('cm_book_year'); ?></time>)</p><?php endif; ?>
+					<?php if (get_field('cm_book_isbn')) : ?><p class="date">ISBN: <span itemprop="isbn"><?php the_field('cm_book_isbn'); ?></span></p><?php endif; ?>
+				</header>
 				<?php the_content(); ?>
 			</div><!-- END .content -->
 
