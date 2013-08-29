@@ -1,6 +1,7 @@
 /* Colors */
 
 a,
+.color,
 .title {
 	@each $color in $colors {
 		.#{nth($color, 1)} & {
@@ -12,6 +13,28 @@ a,
 a:hover,
 a:focus {
 	color: #000;
+}
+
+.subtitle a,
+.the-title a {
+	color: $color-text;
+}
+
+.subsubtitle a {
+	color: $color-text-light;
+}
+
+.subtitle,
+.subsubtitle,
+.the-title {
+	a:hover,
+	a:focus {
+		@each $color in $colors {
+			.#{nth($color, 1)} & {
+				color: nth($color, 2);
+			}
+		}
+	}
 }
 
 hr {

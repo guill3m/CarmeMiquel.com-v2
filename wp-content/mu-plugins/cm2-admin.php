@@ -66,6 +66,7 @@ function cm2_base_extended_editor_mce_buttons($buttons) {
 		'indent',
 		'separator',
 		'formatselect',
+		'styleselect',
 		'separator',
 		'link',
 		'unlink',
@@ -76,8 +77,7 @@ function cm2_base_extended_editor_mce_buttons($buttons) {
 		'pastetext',
 		'removeformat',
 		'separator',
-		'fullscreen',
-		'charmap',
+		'fullscreen'
 	);
 }
 
@@ -93,6 +93,8 @@ add_filter('mce_buttons_2', 'cm2_base_extended_editor_mce_buttons_2', 0);
 
 function cm2_base_custom_mce_format($init) {
 	$init['theme_advanced_blockformats'] = 'p,h2,h3,h4,h5,h6';
+	//$init['theme_advanced_buttons2_add_before'] = 'styleselect';
+	$init['theme_advanced_styles'] = 'Pregunta entrevista=interviewer,Ella ha dit=ella-ha-dit, Color=color';
 	return $init;
 }
 

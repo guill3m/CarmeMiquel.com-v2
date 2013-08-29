@@ -24,8 +24,8 @@ get_header(); ?>
 				'posts_per_page'=> -1,
 				'orderby'       => 'post_date',
 				'order'         => 'ASC',
-				'meta_key'      => 'cm_interview_type_sort',
-				'meta_value'    => 'entrevista',
+				'meta_key'      => 'cm_interview_type',
+				'meta_value'    => 'Entrevista',
 				'post_type'     => 'entrevistes')); ?>
 			<ul class="index">
 				<?php foreach ($entrevistes as $post): setup_postdata($post); ?>
@@ -41,8 +41,8 @@ get_header(); ?>
 				'posts_per_page'=> -1,
 				'orderby'       => 'post_date',
 				'order'         => 'ASC',
-				'meta_key'      => 'cm_interview_type_sort',
-				'meta_value'    => 'colloqui',
+				'meta_key'      => 'cm_interview_type',
+				'meta_value'    => 'Conferència',
 				'post_type'     => 'entrevistes')); ?>
 			<ul class="index">
 				<?php foreach ($colloquis as $post): setup_postdata($post); ?>

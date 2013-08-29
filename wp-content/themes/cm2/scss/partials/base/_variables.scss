@@ -1,8 +1,8 @@
 // # DESIGN GUIDES #
 // =================
-// Max Width: 1140px
+// Max Width: 1440px
 // Columns: 6
-// Column Width: 160px
+// Column Width: 210px
 // Gutter Width: 30px
 // Font Size:   15px - .9375em (from 16px)
 // Line Height: 21px - 1.4em (from 15px)
@@ -10,7 +10,7 @@
 
 // Colors
 $color-text:        rgb(65,65,65);    // Dark Grey
-$color-text-light:  rgb(195,195,195); // Light Grey
+$color-text-light:  rgb(180,180,180); // Light Grey
 $color-autora:      rgb(140,195,75);  // Light Green
 $color-entrevistes: rgb(75,135,195);  // Darkish Blue
 $color-llibres:     rgb(235,175,45);  // Yellowish Orange
@@ -19,15 +19,15 @@ $color-videos:      rgb(75,185,195);  // Greenish Light Blue
 $color-mes-sobre:   rgb(195,75,75);   // Red
 
 // Columns
-$columns1:  14.035087719298%; // 160px / 1140px
-$columns2:  30.701754385965%; // 350px / 1140px
-$columns3:  47.368421052632%; // 540px / 1140px
-$columns4:  64.035087719298%; // 730px / 1140px
-$columns5:  80.701754385965%; // 920px / 1140px
-$columns6:  97.368421052632%; // 1110px / 1140px
-$gutter:    2.631578947368%;  // 30px / 1140px
+$columns1:  210%/1440*100;
+$columns2:  450%/1440*100;
+$columns3:  690%/1440*100;
+$columns4:  930%/1440*100;
+$columns5:  1170%/1440*100;
+$columns6:  1410%/1440*100;
+$gutter:    30%/1440*100;
 $gutter-mg: 0 $gutter/2;
-$max-width: 1140px;
+$max-width: 1440px;
 
 // Typography
 $type-serif: Arvo, serif;

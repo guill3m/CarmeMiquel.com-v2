@@ -16,11 +16,11 @@ get_header(); ?>
 
 			<hgroup class="title-block">
 				<h2 class="title">Llibre</h2>
-				<h3 class="subtitle"><?php the_field('cm_book_subpage_type'); ?></h3>
+				<?php if (has_post_thumbnail($post->post_parent)) : echo get_the_post_thumbnail($post->post_parent, 'llibre-small', array('class' => 'sidebar-img small', 'alt' => the_title_attribute(array('echo' => 0)))); endif; ?>
 			</hgroup>
 
 			<div class="content">
-				<h1 class="subtitle"><?php the_title($post->post_parent); ?></h1>
+				<h1 class="the-title"><a href="<?php echo get_permalink($post->post_parent); ?>"><?php echo get_the_title($post->post_parent); ?>:</a> <?php the_field('cm_book_subpage_type'); ?></h1>
 				<?php the_content(); ?>
 			</div>
 
@@ -35,24 +35,21 @@ get_header(); ?>
 				<?php if (get_field('cm_book_awards')) : while(has_sub_field('cm_book_awards')) : ?><h3 class="subsubtitle" itemprop="award"><?php the_field('cm_book_award'); ?></h3><?php endwhile; endif; ?>
 			</hgroup><!-- END .title-block -->
 
-			<div class="content" itemprop="description">
-				<header>
-					<h1 class="the-title" itemprop="name"><?php the_title(); ?></h1>
-					<meta itemprop="author" content="Carme Miquel" />
-					<meta itemprop="inLanguage" content="ca" />
-					<meta itemprop="audience" content="<?php the_terms($post->ID, 'public_llibres', '', ', ', ''); ?>" />
-					<link itemprop="url" href="<?php the_permalink(); ?>">
-					<?php if (get_field('cm_book_publisher') && get_field('cm_book_year')) : ?><p class="date"><span itemprop="publisher"><?php the_field('cm_book_publisher'); ?></span> (<time itemprop="datePublished"><?php the_field('cm_book_year'); ?></time>)</p><?php endif; ?>
-					<?php if (get_field('cm_book_isbn')) : ?><p class="date">ISBN: <span itemprop="isbn"><?php the_field('cm_book_isbn'); ?></span></p><?php endif; ?>
-				</header>
-				<?php the_content(); ?>
-			</div><!-- END .content -->
+			<header class="content">
+				<h1 class="the-title" itemprop="name"><?php the_title(); ?></h1>
+				<meta itemprop="author" content="Carme Miquel" />
+				<meta itemprop="inLanguage" content="ca" />
+				<meta itemprop="audience" content="<?php the_terms($post->ID, 'public_llibres', '', ', ', ''); ?>" />
+				<link itemprop="url" href="<?php the_permalink(); ?>">
+				<?php if (get_field('cm_book_publisher') && get_field('cm_book_year')) : ?><p class="date"><span itemprop="publisher"><?php the_field('cm_book_publisher'); ?></span> (<time itemprop="datePublished"><?php the_field('cm_book_year'); ?></time>)</p><?php endif; ?>
+				<?php if (get_field('cm_book_isbn')) : ?><p class="date">ISBN: <span itemprop="isbn"><?php the_field('cm_book_isbn'); ?></span></p><?php endif; ?>
+			</header>
 
 			<?php if (has_post_thumbnail() || get_field('cm_book_collaborator') || get_field('cm_book_illustrator') || get_field('cm_book_extras')) : ?>
-				<aside class="sidebar">
+				<aside class="sidebar book">
 					<?php if (has_post_thumbnail()) : the_post_thumbnail('sidebar', array('class' => 'sidebar-img', 'alt' => the_title_attribute(array('echo' => 0)), 'itemprop' => 'image')); endif; ?>
-					<?php if (get_field('cm_book_collaborator')) : ?><p>En col·laboració amb: <span itemprop="contributor"><?php the_field('cm_book_collaborator'); ?></span></p><?php endif; ?>
-					<?php if (get_field('cm_book_illustrator')) : ?><p>Il·lustracions: <span itemprop="illustrator"><?php the_field('cm_book_illustrator'); ?></span></p><?php endif; ?>
+					<?php if (get_field('cm_book_collaborator')) : ?><p>En col·laboració amb <span itemprop="contributor"><?php the_field('cm_book_collaborator'); ?></span></p><?php endif; ?>
+					<?php if (get_field('cm_book_illustrator')) : ?><p>Il·lustracions per <span itemprop="illustrator"><?php the_field('cm_book_illustrator'); ?></span></p><?php endif; ?>
 					<?php if (get_field('cm_book_extras')) : ?><p><?php the_field('cm_book_extras'); ?></p><?php endif; ?>
 					<?php $subpages = wp_list_pages(array('depth' => -1, 'title_li' => '', 'link_before' => '<p>', 'link_after' => '</p>', 'post_type' => 'llibres', 'child_of' => $post->ID, 'echo' => 0)); ?>
 					<?php if ($subpages) : ?>
@@ -60,6 +57,10 @@ get_header(); ?>
 					<?php endif; ?>
 				</aside><!-- END .sidebar -->
 			<?php endif; ?>
+
+			<div class="content" itemprop="description">
+				<?php the_content(); ?>
+			</div><!-- END .content -->
 
 		</article><!-- END #book-<?php the_ID(); ?> -->
 

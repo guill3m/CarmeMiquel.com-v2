@@ -28,7 +28,7 @@ get_header(); ?>
 					'hide_empty'         => 1,
 					'use_desc_for_title' => 1,
 					'hierarchical'       => 1,
-					'title_li'           => ,
+					'title_li'           => '',
 					'show_option_none'   => 'Sense categories',
 					'number'             => null,
 					'echo'               => 1,

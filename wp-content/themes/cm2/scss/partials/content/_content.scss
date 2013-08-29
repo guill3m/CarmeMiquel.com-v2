@@ -5,6 +5,10 @@ p {
 	font-size: .9375em; // 15px / 16px
 }
 
+small {
+	font-size: .8em; // 12px / 15px
+}
+
 a {
 	color: $color-text;
 	text-decoration: none;
@@ -25,9 +29,18 @@ em {
 	font-style: italic;
 }
 
+ul {
+	line-height: 1.4;
+	list-style: none;
+	ul {
+		padding-left: 1em;
+	}
+}
+
 hr {
 	background-color: $color-text-light;
-	height: 1px;
+	border-radius: 3px;
+	height: 3px;
 	margin: 20px 10%;
 	width: 80%;
 }
@@ -39,38 +52,124 @@ hr {
 
 .title {
 	font: {
-		size: 3em;  // 48px / 16px
+		size: 2.75em; // 44px / 16px
 		weight: 700;
 	}
 	line-height: 1;
+	@media (min-width: 645px) {
+		font-size: 2em; // 32px / 16px
+	}
+	@media (min-width: 760px) {
+		font-size: 2.5em; // 40px / 16px
+	}
+	@media (min-width: 850px) {
+		font-size: 2.75em; // 44px / 16px
+	}
 }
 
 .subtitle {
 	font: {
-		size: 2.3125em;  // 37px / 16px
+		size: 2em; // 32px / 16px
 		weight: 600;
 	}
-	line-height: 1.13513513513514;  // 42px / 37px
+	line-height: 1.2;
 	margin-top: 15px;
+	a {
+		color: $color-text;
+	}
+	.content & {
+		margin-top: 5px;
+	}
 }
 
 .subsubtitle {
 	color: $color-text-light;
-	font-size: 1.625em;  // 26px / 16px
-	line-height: 1.38461538461538;  // 36px / 26px
+	font-size: 1.5em; // 24px / 16px
+	line-height: 1.4;
+	a {
+		color: $color-text-light;
+	}
+}
+
+.the-title {
+	font: {
+		family: $type-serif;
+		size: 2em;  // 32px / 16px
+		weight: 700;
+	}
+	line-height: 1.5;
+}
+
+.interviewer,
+.ella-ha-dit {
+	font-family: $type-serif;
+}
+
+p.interviewer {
+	border-left: 3px solid $color-entrevistes;
+	padding-left: 9px;
 }
 
 .content {
 	margin: $gutter-mg;
 	width: $columns6;
+	+ .content {
+		margin-top: 2.5em;
+	}
 	p {
-		margin-top: 26px;
-		+ p {
-			margin-top: 1em;
+		margin-top: 1em;
+	}
+	.date {
+		color: $color-text-light;
+		font: {
+			family: $type-serif;
+			size: .75em; // 12px / 16px
+		}
+		margin: 0;
+		+ .date {
+			margin-top: .5em;
 		}
 	}
 	@media (min-width: 645px) {
 		float: right;
 		width: $columns4;
 	}
+	footer {
+		border-top: 1px solid;
+		color: $color-text-light;
+		font: {
+			family: $type-serif;
+			size: .75em; // 12px / 16px
+		}
+		margin-top: 1em;
+	}
+}
+
+.index {
+	margin-top: 1em;
+	@media (min-width: 645px) {
+		@include columns(2, 2em);
+		&.books {
+			@include columns(1, 0);
+		}
+		li {
+			@include avoid-column-break();
+		}
+	}
+}
+
+.video {
+	height: 0;
+	position: relative;
+	iframe {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+.show-hide-content {
+	display: none;
 }

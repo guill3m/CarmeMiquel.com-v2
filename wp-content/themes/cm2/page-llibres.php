@@ -19,7 +19,7 @@ get_header(); ?>
 
 		<div id="content" class="content">
 			<h2 class="subtitle">Per públic</h2>
-			<ul class="index">
+			<ul class="index books">
 				<li><a href="http://carmemiquel.com/llibres/infantil/">Infantil</a></li>
 				<li><a href="http://carmemiquel.com/llibres/juvenil/">Juvenil</a></li>
 				<li><a href="http://carmemiquel.com/llibres/adults/">Adults</a></li>

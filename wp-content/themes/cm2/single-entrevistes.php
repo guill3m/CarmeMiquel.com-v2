@@ -19,13 +19,13 @@ get_header(); ?>
 		</hgroup><!-- END .title-block -->
 
 		<div class="content">
-			<?php if (has_post_format()) :
+			<?php if (get_post_format()) :
 				get_template_part('format', get_post_format());
 			endif;
 			the_content(); ?>
 		</div><!-- END .content -->
 
-		<?php if (get_field('cm_sidebar_check')) : ?>
+		<?php if (get_field('cm_sidebar')) : ?>
 			<aside class="sidebar">
 				<?php the_field('cm_sidebar'); ?>
 			</aside><!-- END .sidebar -->

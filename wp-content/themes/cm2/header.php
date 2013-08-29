@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="<?php echo $body_class; ?>">
+<body class="<?php global $body_class; echo $body_class; ?>">
 
 	<div id="center" class="center">
 

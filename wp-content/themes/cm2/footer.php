@@ -7,11 +7,8 @@
 
 		<footer id="footer" class="footer">
 			<small>
-			<?php if ( function_exists('yoast_breadcrumb') ) {
-				yoast_breadcrumb('<nav class="breadcrumbs"><p>','</p></nav>');
-			} ?>
-				<span class="footer-left">© Carme Miquel, 2009–<?php echo date('Y'); ?></span>
-				<span class="footer-right">Disseny i Desenvolupament Web: <a href="http://guillemandreu.com/">Guillem Andreu</a></span>
+				<span class="footer-left">© Carme Miquel, <?php echo date('Y'); ?></span>
+				<span class="footer-right">Disseny Web: <a href="http://guillemandreu.com/">Guillem Andreu</a></span>
 			</small>
 		</footer><!-- END #footer -->
 
