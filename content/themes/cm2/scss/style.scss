@@ -23,7 +23,7 @@ Tags: flexible, responsive, mobile first, 2 columns
 
 // Reset
 @import "partials/base/reset";
-// @import "partials/base/wordpress"; // Not needed for the moment
+@import "partials/base/wordpress"; // Not needed for the moment
 
 // Styles
 @import "partials/base/base";
