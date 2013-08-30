@@ -12,6 +12,7 @@
 	}
 }
 
+// Fonts
 @include font-face("Arvo", "arvo", 400);
 @include font-face("Arvo", "arvo-bold", 700);
 @include font-face("Open Sans", "opensans", 400);
@@ -19,3 +20,6 @@
 @include font-face("Open Sans", "opensans-semibold", 600);
 @include font-face("Open Sans", "opensans-bold", 700);
 @include font-face("Open Sans", "opensans-bolditalic", 700, italic);
+
+// Icons
+@include font-face("CM2 Icons", "cm2-icons", normal);

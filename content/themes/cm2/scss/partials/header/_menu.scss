@@ -53,6 +53,10 @@
 }
 
 [data-icon] {
+	font: {
+		family: "CM2 Icons";
+		weight: 400;
+	}
 	speak: none;
 	text-transform: lowercase;
 	&:before {
