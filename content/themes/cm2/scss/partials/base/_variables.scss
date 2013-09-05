@@ -16,7 +16,8 @@ $color-entrevistes: rgb(75,135,195);  // Darkish Blue
 $color-llibres:     rgb(235,175,45);  // Yellowish Orange
 $color-articles:    rgb(195,75,130);  // Magenta
 $color-videos:      rgb(75,185,195);  // Greenish Light Blue
-$color-mes-sobre:   rgb(195,75,75);   // Red
+$color-light-bg:    rgb(248,248,248); // Really Light Grey
+$color-light-bg-h:  rgb(240,240,240); // Almost Really Light Grey
 
 // Columns
 $columns1:  210%/1440*100;
@@ -38,5 +39,4 @@ $colors: 'autora' $color-autora,
          'entrevistes' $color-entrevistes,
          'llibres' $color-llibres,
          'articles' $color-articles,
-         'videos' $color-videos,
-         'mes-sobre' $color-mes-sobre;
+         'videos' $color-videos;

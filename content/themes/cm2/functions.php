@@ -26,7 +26,7 @@ function cm2_setup_theme() {
 	add_theme_support('post-formats', array('audio', 'video'));
 	add_theme_support('post-thumbnails', array('entrevistes', 'llibres', 'page', 'videos'));
 	add_image_size('sidebar', 350, 9999);
-	add_image_size('llibre-small', 9999, 120);
+	add_image_size('llibre-small', 9999, 200);
 	add_image_size('video', 480, 270);
 }
 
@@ -73,12 +73,10 @@ endif;
 function cm2_js_enqueue() {
 	global $theme_version_number;
 	// Head
-	wp_register_script('html5shiv', get_template_directory_uri() . "/js/html5shiv.min.js", false, '3.6.2pre', false);
-	wp_register_script('respond', get_template_directory_uri() . "/js/respond.js", false, '1.1.0', false);
 	// Footer
-	wp_register_script('retina', get_template_directory_uri() . "/js/retina.min.js", false, '0.0.2', true);
+	wp_register_script('scripts', get_template_directory_uri() . "/js/scripts.min.js", 'jquery', $theme_version_number, true);
 	// Load scripts
-	wp_enqueue_script(array('html5shiv', 'respond', 'retina'));
+	wp_enqueue_script(array('scripts'));
 }
 
 add_action('wp_enqueue_scripts', 'cm2_js_enqueue', 13);

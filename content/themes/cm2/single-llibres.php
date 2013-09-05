@@ -17,6 +17,7 @@ get_header(); ?>
 			<hgroup class="title-block">
 				<h2 class="title">Llibre</h2>
 				<?php if (has_post_thumbnail($post->post_parent)) : echo get_the_post_thumbnail($post->post_parent, 'llibre-small', array('class' => 'sidebar-img small', 'alt' => the_title_attribute(array('echo' => 0)))); endif; ?>
+				<p><a href="<?php echo get_permalink($post->post_parent); ?>">« Tornar al llibre</a></p>
 			</hgroup>
 
 			<div class="content">
@@ -32,29 +33,42 @@ get_header(); ?>
 
 			<hgroup class="title-block">
 				<h2 class="title">Llibre</h2>
-				<?php if (get_field('cm_book_awards')) : while(has_sub_field('cm_book_awards')) : ?><h3 class="subsubtitle" itemprop="award"><?php the_field('cm_book_award'); ?></h3><?php endwhile; endif; ?>
 			</hgroup><!-- END .title-block -->
 
 			<header class="content">
 				<h1 class="the-title" itemprop="name"><?php the_title(); ?></h1>
 				<meta itemprop="author" content="Carme Miquel" />
 				<meta itemprop="inLanguage" content="ca" />
-				<meta itemprop="audience" content="<?php the_terms($post->ID, 'public_llibres', '', ', ', ''); ?>" />
+				<?php $audiences = get_the_terms($post->ID, 'public_llibres');
+				if ($audiences) :
+					$audiences_link = array();
+					foreach ($audiences as $audience) :
+						$audience_link[] = $audience->name;
+					endforeach;
+					$the_audience = join( ", ", $audience_link ); ?>
+					<meta itemprop="audience" content="<?php echo $the_audience; ?>" />
+				<?php endif; ?>
 				<link itemprop="url" href="<?php the_permalink(); ?>">
 				<?php if (get_field('cm_book_publisher') && get_field('cm_book_year')) : ?><p class="date"><span itemprop="publisher"><?php the_field('cm_book_publisher'); ?></span> (<time itemprop="datePublished"><?php the_field('cm_book_year'); ?></time>)</p><?php endif; ?>
 				<?php if (get_field('cm_book_isbn')) : ?><p class="date">ISBN: <span itemprop="isbn"><?php the_field('cm_book_isbn'); ?></span></p><?php endif; ?>
+				<?php if (get_field('cm_book_awards')) : while(has_sub_field('cm_book_awards')) : ?><h3 class="subsubtitle" itemprop="award"><?php the_sub_field('cm_book_award'); ?></h3><?php endwhile; endif; ?>
+				<?php if (get_field('cm_book_collaborator')) : ?><p class="book-more">En col·laboració amb <span itemprop="contributor"><?php the_field('cm_book_collaborator'); ?></span></p><?php endif; ?>
+					<?php if (get_field('cm_book_illustrator')) : ?><p class="book-more">Il·lustracions per <span itemprop="illustrator"><?php the_field('cm_book_illustrator'); ?></span></p><?php endif; ?>
+					<?php if (get_field('cm_book_extras')) : ?><p class="book-more"><?php the_field('cm_book_extras'); ?></p><?php endif; ?>
+					<?php $subpages = get_pages(array('child_of' => $post->ID, 'post_type' => 'llibres')); ?>
+					<?php if ($subpages) : ?>
+						<p class="book-more">Més informació sobre aquest llibre:</p>
+						<ul class="book-more">
+							<?php foreach ($subpages as $subpage) : ?>
+								<li><p class="book-more"><a href="<?php echo get_permalink($subpage->ID) ?>" title="<?php echo get_the_title($subpage->ID) ?>"><?php the_field('cm_book_subpage_type', $subpage->ID); ?></a></p></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 			</header>
 
-			<?php if (has_post_thumbnail() || get_field('cm_book_collaborator') || get_field('cm_book_illustrator') || get_field('cm_book_extras')) : ?>
-				<aside class="sidebar book">
-					<?php if (has_post_thumbnail()) : the_post_thumbnail('sidebar', array('class' => 'sidebar-img', 'alt' => the_title_attribute(array('echo' => 0)), 'itemprop' => 'image')); endif; ?>
-					<?php if (get_field('cm_book_collaborator')) : ?><p>En col·laboració amb <span itemprop="contributor"><?php the_field('cm_book_collaborator'); ?></span></p><?php endif; ?>
-					<?php if (get_field('cm_book_illustrator')) : ?><p>Il·lustracions per <span itemprop="illustrator"><?php the_field('cm_book_illustrator'); ?></span></p><?php endif; ?>
-					<?php if (get_field('cm_book_extras')) : ?><p><?php the_field('cm_book_extras'); ?></p><?php endif; ?>
-					<?php $subpages = wp_list_pages(array('depth' => -1, 'title_li' => '', 'link_before' => '<p>', 'link_after' => '</p>', 'post_type' => 'llibres', 'child_of' => $post->ID, 'echo' => 0)); ?>
-					<?php if ($subpages) : ?>
-						<ul><?php echo $subpages; ?></ul>
-					<?php endif; ?>
+			<?php if (has_post_thumbnail()) : ?>
+				<aside class="sidebar">
+					<?php the_post_thumbnail('sidebar', array('class' => 'sidebar-img', 'alt' => the_title_attribute(array('echo' => 0)), 'itemprop' => 'image')); ?>
 				</aside><!-- END .sidebar -->
 			<?php endif; ?>
 

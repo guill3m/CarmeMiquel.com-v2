@@ -325,7 +325,7 @@ function cm2_llibres_column_thumb($column) {
 	global $post;
 	switch ($column) {
 		case 'thumbnail':
-			the_post_thumbnail();
+			the_post_thumbnail('llibre-small');
 		break;
 	}
 }

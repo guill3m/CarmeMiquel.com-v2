@@ -46,9 +46,28 @@ hr {
 }
 
 .menu {
-	@each $color in $colors {
-		.#{nth($color, 1)} a {
-			color: nth($color, 2);
+	@media (max-width: 499px) {
+		a {
+			border-radius: 6px;
+			color: #fff;
+		}
+		li {
+			margin-top: .5em;
+		}
+		li:nth-child(1) {
+			margin-top: 0;
+		}
+		@each $color in $colors {
+			.#{nth($color, 1)} a {
+				background: nth($color, 2);
+			}
+		}
+	}
+	@media (min-width: 500px) {
+		@each $color in $colors {
+			.#{nth($color, 1)} a {
+				color: nth($color, 2);
+			}
 		}
 	}
 }

@@ -14,10 +14,15 @@
 			line-height: 32px;
 		}
 	}
-	@media (min-width: 645px) {
+	@media (min-width: 600px) {
 		margin-left: $columns2+($gutter/2)*3;
 		overflow: hidden;
 		width: $columns4;
+		.front-page & {
+			float: none;
+			margin: 30px $gutter/2 15px;
+			width: $columns6;
+		}
 	}
 }
 
