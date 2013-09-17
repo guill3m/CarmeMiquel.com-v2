@@ -5,6 +5,8 @@ content/cache
 content/lang
 content/plugins/acf-repeater
 content/plugins/advanced-custom-fields
+content/plugins/akismet
+content/plugins/jetpack
 content/plugins/mp6
 content/plugins/wordpress-seo
 content/plugins/wp-retina-2x
@@ -14,6 +16,7 @@ content/themes/index.php
 content/index.php
 content/upgrade
 content/uploads
+img web
 web carme
 wp-*
 xmlrpc.php

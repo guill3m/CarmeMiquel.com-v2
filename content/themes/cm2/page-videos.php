@@ -21,8 +21,8 @@ get_header(); ?>
 
 			<?php $videos = get_posts(array(
 				'posts_per_page'=> -1,
-				'orderby'       => 'title',
-				'order'         => 'ASC',
+				'orderby'       => 'post_date',
+				'order'         => 'DES',
 				'post_type'     => 'videos')); ?>
 
 			<?php foreach ($videos as $post): setup_postdata($post); ?>

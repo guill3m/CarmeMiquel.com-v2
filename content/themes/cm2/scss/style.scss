@@ -6,7 +6,7 @@ Theme URI: http:/carmemiquel.com/
 Author: Guillem Andreu
 Author URI: http://guillemandreu.com/
 Description: Theme per a la web de Carme Miquel
-Version: 2.0.0
+Version: 2.0.1
 License: Private
 Tags: flexible, responsive, mobile first, 2 columns
 */
@@ -23,7 +23,7 @@ Tags: flexible, responsive, mobile first, 2 columns
 
 // Reset
 @import "partials/base/reset";
-@import "partials/base/wordpress"; // Not needed for the moment
+@import "partials/base/wordpress";
 
 // Styles
 @import "partials/base/base";

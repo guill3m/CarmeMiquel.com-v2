@@ -24,6 +24,17 @@
 
 	<!--[if lt IE 9]> <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/ie8.min.js"></script> <![endif]-->
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-375607-7']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
 </head>
 
 <body class="<?php global $body_class; echo $body_class; ?>">

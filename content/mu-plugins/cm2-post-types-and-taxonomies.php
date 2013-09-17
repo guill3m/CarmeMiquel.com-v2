@@ -327,6 +327,20 @@ function cm2_llibres_column_thumb($column) {
 		case 'thumbnail':
 			the_post_thumbnail('llibre-small');
 		break;
+		case 'public_llibres':
+			$publics = get_the_terms($post_id, 'public_llibres');
+			if (!empty($publics)) {
+				foreach ($publics as $public) {
+					$out[] = sprintf('<a href="%s">%s</a>',
+						esc_url(add_query_arg(array('post_type' => $post->post_type, 'public_llibres' => $public->slug ), 'edit.php')),
+						esc_html(sanitize_term_field('name', $public->name, $public->term_id, 'public_llibres', 'display'))
+					);
+					echo join(', ', $out);
+				}
+			} else {
+				echo 'No hi ha public';
+			}
+		break;
 	}
 }
 

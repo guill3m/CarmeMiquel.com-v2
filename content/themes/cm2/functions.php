@@ -27,7 +27,7 @@ function cm2_setup_theme() {
 	add_theme_support('post-thumbnails', array('entrevistes', 'llibres', 'page', 'videos'));
 	add_image_size('sidebar', 350, 9999);
 	add_image_size('llibre-small', 9999, 200);
-	add_image_size('video', 480, 270);
+	add_image_size('video', 480, 270, true);
 }
 
 add_action('after_setup_theme', 'cm2_setup_theme');

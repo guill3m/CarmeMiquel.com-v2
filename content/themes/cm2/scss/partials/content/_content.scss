@@ -30,11 +30,9 @@ em {
 }
 
 ul {
+	font-size: .9375em; // 15px / 16px
 	line-height: 1.6;
-	list-style: none;
-	ul {
-		padding-left: 1em;
-	}
+	padding-left: 1em;
 }
 
 hr {
@@ -175,6 +173,7 @@ p.interviewer {
 		font-size: .8125em; // 13px / 16px
 	}
 	ul.book-more {
+		list-style: none;
 		font-size: 1em;
 		padding-left: 1em;
 	}
@@ -190,8 +189,11 @@ p.interviewer {
 }
 
 .index {
+	font-size: 1em;
 	line-height: 1.5;
+	list-style: none;
 	margin-top: 1em;
+	padding-left: 0;
 	.articles & {
 		@media (min-width: 670px) {
 			@include columns(2, 2em);
@@ -288,7 +290,7 @@ p.interviewer {
 
 .book-info {
 	height: 100%;
-	padding-top: 1.5em;
+	padding: 1em;
 	.book-name {
 		font-weight: 700;
 	}
