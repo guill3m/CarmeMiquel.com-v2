@@ -56,7 +56,7 @@ add_action('wp_enqueue_scripts', 'cm2_css_enqueue', 11);
 
 function cm2_jquery_enqueue() {
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null, true);
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js", false, null, true);
 	wp_enqueue_script('jquery');
 }
 
