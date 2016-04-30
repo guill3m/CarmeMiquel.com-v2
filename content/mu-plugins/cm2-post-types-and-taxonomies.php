@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CM2 Post Types & Taxonomies
-Version: 1.0
+Version: 1.1
 Author: Guillem Andreu
 Author URI: http://guillemandreu.com
 Description: Custom post types and custom taxonomies
@@ -368,55 +368,25 @@ add_filter('manage_edit-llibres_columns', 'cm2_llibres_columns');
 
 
 /*
- * Add custom post types and custom taxonomies to the “right now” dashboard widget
+ * Add custom post types and custom taxonomies to the “at a glance” dashboard widget
  */
 
-function cm2_add_to_right_now_widget() {
+function cm2_add_to_at_a_glance_widget() {
 	/* Post Types */
 	$post_types = get_post_types(array('_builtin' => false), 'objects');
 	foreach ($post_types as $post_type) {
-		if ($post_type->name == 'acf') continue; // Don0t show the Advanced Custom Fields plugin’s custom type
+		if ($post_type->name == 'acf-field') continue; // Don’t show the Advanced Custom Fields plugin’s custom type
+		if ($post_type->name == 'acf-field-group') continue; // Don’t show the Advanced Custom Fields plugin’s custom type
 		$num_posts = wp_count_posts($post_type->name);
 		$num = number_format_i18n($num_posts->publish);
 		$text = _n($post_type->labels->singular_name, $post_type->labels->name, $num_posts->publish);
 		if (current_user_can('edit_posts')) {
-			$num = '<a href="edit.php?post_type=' . $post_type->name . '">' . $num . '</a>';
-			$text = '<a href="edit.php?post_type=' . $post_type->name . '">' . $text . '</a>';
+			echo '<li class="post-count"><a href="edit.php?post_type=' . $post_type->name . '">' . $num . ' ' . $text . '</a></li>';
 		}
-		echo '<td class="first b b-' . $post_type->name . 's">' . $num . '</td>';
-		echo '<td class="t ' . $post_type->name . 's">' . $text . '</td>';
-		echo '</tr>';
-
-		if ($num_posts->pending > 0) {
-			$num = number_format_i18n($num_posts->pending);
-			$text = _n($post_type->labels->singular_name . ' Pendiente', $post_type->labels->name . ' Pendientes', $num_posts->pending);
-			if (current_user_can('edit_posts')) {
-				$num = '<a href="edit.php?post_status=pending&post_type=' . $post_type->name . '">' . $num . '</a>';
-				$text = '<a href="edit.php?post_status=pending&post_type=' . $post_type->name . '">' . $text . '</a>';
-			}
-			echo '<td class="first b b-' . $post_type->name . 's">' . $num . '</td>';
-			echo '<td class="t ' . $post_type->name . 's">' . $text . '</td>';
-			echo '</tr>';
-		}
-	}
-	/* Taxonomies */
-	$taxonomies = get_taxonomies(array('_builtin' => false), 'objects');
-	foreach ($taxonomies as $taxonomy) {
-		$num_terms = wp_count_terms($taxonomy->name);
-		$num = number_format_i18n($num_terms);
-		$text = _n($taxonomy->labels->singular_name, $taxonomy->labels->name, $num_terms);
-		$associated_post_type = $taxonomy->object_type;
-		if (current_user_can('manage_categories')) {
-			$num = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $num . '</a>';
-			$text = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $text . '</a>';
-		}
-		echo '<td class="first b b-' . $taxonomy->name . 's">' . $num . '</td>';
-		echo '<td class="t ' . $taxonomy->name . 's">' . $text . '</td>';
-		echo '</tr><tr>';
 	}
 }
 
-add_action('right_now_content_table_end', 'cm2_add_to_right_now_widget');
+add_action('dashboard_glance_items', 'cm2_add_to_at_a_glance_widget');
 
 
 
